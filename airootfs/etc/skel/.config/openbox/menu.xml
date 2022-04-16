@@ -15,6 +15,17 @@
 
 <menu id="applications" label="Applications" execute="xdg_menu --format openbox3-pipe --root-menu /etc/xdg/menus/lxde-applications.menu" />
 
+<menu id="root-menu-settings" label="Settings ;-)">
+<menu id="root-menu-openbox" label="Openbox">
+<item label="Menu"><action name="Execute"><execute>l3afpad /home/ablive/.config/openbox/menu.xml</execute></action></item>
+<item label="Config"><action name="Execute"><execute>l3afpad /home/ablive/.config/openbox/rc.xml</execute></action></item>
+<item label="Autostart"><action name="Execute"><execute>l3afpad /home/ablive/.config/openbox/autostart</execute></action></item>
+<item label="Reload"><action name="Execute"><execute>openbox --reconfigure</execute></action></item>
+</menu>
+<menu id="root-menu-pacman" label="Pacman">
+<item label="Servers"><action name="Execute"><execute>abserver</execute></action></item>
+</menu>
+</menu>
 <separator/>
 
 <menu id="root-menu-logout" label="Exit">
@@ -26,3 +37,4 @@
 </menu>
 
 </openbox_menu>
+

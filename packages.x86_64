@@ -7,8 +7,8 @@ xz
 lzop
 
 # File manager
-udevil
 pcmanfm-gtk3
+udisks2
 
 # Xorg
 xorg-server
@@ -38,16 +38,10 @@ ncdu
 rofi
 pragha
 vim
+gvfs
 
-# i3 version
-i3-wm
-i3status
-i3lock
-
-
-# Themes and icons
+# Icon set
 arc-icon-theme
-#arc-gtk-theme
 
 # Media
 volumeicon

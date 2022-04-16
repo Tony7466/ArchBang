@@ -19,7 +19,8 @@ if [ -e /home/ablive ];then
   IFS='
 '
   echo "Modified files :"
-  for i in $(find /home/$usr1/.??* -type f);do grep "home/$usr1" $i >/dev/null && sed -i "s|home/$usr1|home/$usr2|g" $i && echo $i;done
+  #for i in $(find /home/$usr1/.??* -type f);do grep "home/$usr1" $i >/dev/null && sed -i "s|home/$usr1|home/$usr2|g" $i && echo $i;done
+  find /home/$usr1 -type f -exec sed -i "s/ablive/$usr2/g" {} +
   echo "Modification of the config files finished !"
   sleep 1
   echo "Renaming user..."

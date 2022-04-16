@@ -27,6 +27,8 @@ Installer Menu includes:
 === Post Install ===
 ====================
 
+Autologin is disabled during install, you will end up at a log in prompt. Enter your chosen username and password to log in.
+
 ===Pacman===
 
 To get pacman running you will need a working network connection, either wired [connects automatically] or wireless [click icon on panel and find your named network].
@@ -39,13 +41,9 @@ Then you can install a package of choice using:
 
 	sudo pacman -S <package_name>
 
-Autologin is disabled during install, you will end up at a log in prompt. Enter your chosen username and password to log in.
-
 If you have not set your local mirrors during install you should edit them. Either use config_edit script and select mirrorlist or visit https://archlinux.org/mirrorlist/.
 
 Will link to arch wiki page for more information: https://wiki.archlinux.org/title/Mirrors
-
-
 
 ====Sound====
 
@@ -68,18 +66,16 @@ To disable blank screen after 10 minutes of inactivity, create a file in
  EndSection
 
 
-Everything about Arch isn't covered in this guide so check the Arch Wiki [https://wiki.archlinux.org/]
+For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
 ====Quick Tips====
 
-To allow Htop to run from Openbox Menu lxterminal is soft linked with xterm.
-If you wish to use xterm terminal then remove link with:
+To allow Vim to work from Openbox menu, had to add a link to lxterminal. If you wish to change terminal or even use xterm then simply remove soft link using in a terminal.
 
-  sudo rm /usr/bin/xterm
+sudo rm /usr/bin/xterm
 
-Then load package as normal
 
-  sudo pacman -S xterm
+
 
 Desktop Keyboard Layout Live:
 

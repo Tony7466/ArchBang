@@ -1,24 +1,22 @@
 #!/usr/bin/env bash
-# confg_edit by Mr Green [mrgreen@archbang.org]
-# basic dmenu style selector fed into rofi
+# config_edit by Mr Green [mrgreen@archbang.org]
+# Edit Openbox Window Manager and reconfigure.
 
 editor="l3afpad"
 
 path="$HOME/.config/openbox"
 
-options="Servers\nPacman config\nOpenbox menu\nOpenbox key binds\nOpenbox autostart"
+options="Menu\nConfig\nAutostart\nReload"
 
 chosen=$(echo -e "$options" | rofi -p 'Select Option' -dmenu )
 
 case $chosen in
-	Servers) sudo ${editor} /etc/pacman.d/mirrorlist ;;
+	"Menu")  ${editor} ${path}/menu.xml ;;
 
-	"Pacman config")  sudo ${editor} /etc/pacman.conf ;;
+	"Config") ${editor} ${path}/rc.xml ;;
 
-	"Openbox menu")  ${editor} ${path}/menu.xml ;;
+	"Autostart") ${editor} ${path}/autostart ;;
 
-	"Openbox key binds") ${editor} ${path}/rc.xml ;;
-
-	"Openbox autostart") ${editor} ${path}/autostart ;;
+	"Reload") openbox --reconfigure ;;
 esac
 

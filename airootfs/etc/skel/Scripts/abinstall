@@ -807,7 +807,7 @@ install_archbang(){
   path="${MNT}/usr/share/applications"
 
   # restore desktop files
-  desk_file='avahi-discover bvnc bssh volumeicon gparted conky tint2 pcmanfm-desktop-pref qv4l2 qvidcap'
+  desk_file='avahi-discover bvnc bssh volumeicon gparted conky tint2 pcmanfm-desktop-pref qv4l2 qvidcap vim'
 
   for un in ${desk_file}
   do

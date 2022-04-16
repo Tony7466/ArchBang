@@ -22,10 +22,10 @@ element-text, element-icon {
     dark-black: #1e2122;
     bg-col:  #222526;
     border-col: #282b2c;
-    blue: #A9D0F1;
+    blue: #496B6A;
     selected-col: #282b2c;
 	fg-col: #FFFFFF;
-    fg-col2: #A9D0F1;
+    fg-col2: #496B6A;
     width: 600;
 }
 

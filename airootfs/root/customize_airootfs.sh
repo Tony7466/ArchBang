@@ -8,9 +8,8 @@ shopt -s extglob
 sed -i 's/#\(en_GB\.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 
-# make a backup and then uncomment mirrorlist
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.abbackup
-sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
+# Allow Parallel Downloads
+sed -i "s/^#Parallel/Parallel/g" /etc/pacman.conf 
 
 # Sudo to allow no password
 sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
@@ -42,22 +41,20 @@ ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 useradd -m -p "" -g users -G "wheel" -s /bin/bash ablive
 chown ablive /home/ablive
 
-# Remove /etc/skel home config files
-rm -r /etc/skel/
-mkdir /etc/skel
+# /etc/skel now available...
 
 # remove desktop files
 path="/usr/share/applications"
 
-desk_file='avahi-discover bvnc bssh volumeicon gparted conky tint2 pcmanfm-desktop-pref qv4l2 qvidcap'
+desk_file='avahi-discover bvnc bssh volumeicon gparted conky tint2 pcmanfm-desktop-pref qv4l2 qvidcap vim'
 
 for rem in ${desk_file}
 do
    mv ${path}/${rem}.desktop ${path}/${rem}.hide
 done
 
-# remove icon set ...
-#pacman -Rdd  adwaita-icon-theme --noconfirm
+# soft link to xterm, to allow vim to work from Openbox menu
+#ln -s /usr/bin/lxterminal /usr/bin/xterm
 
 # Start required systemd services
 systemctl enable {pacman-init,NetworkManager}.service -f
