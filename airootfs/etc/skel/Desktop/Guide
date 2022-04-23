@@ -2,22 +2,22 @@ Welcome to ArchBang Live a live iso [www.archbang.org/Guide].
 
 Information here is as up to date as possible.
 
-Do not advise posting problems related to ArchBang on Archlinux forums it will result in at best your thread closed or worse deleted.
+Please do not post issues or problems related to ArchBang on Archlinux forums it will result in at best your thread closed or worse deleted.
 
 ====Installation====
 
 To run installer either run sudo abinstall in a terminal of use Super + i keybinding
 
-You can create partitions from installer itself or you can use gparted. These partitions should then be mounted to /mnt 
+If you wish to set up partitions beofre running installer either do so manually in a terminal or use gparted. Once complete then simply mount new partitions to /mnt. 
 
 Installer Menu includes:
 
 1) Partition Scheme # Setup target device for install and mount partitons
 2) Install ArchBang # transfers iso image to target device
 3) Hostname # Your given machine name default is 'archbang'
-4) Location # Timezone and country
+4) Location # Timezone and Pacman Servers [mirrorlist] depends on network connection.
 5) Hardware Clock # UTC or localtime (user preference can affect windows dual boot)
-6) Location # Keyboard layout/ Language (Console), Servers based on your country
+6) Locale # Keyboard layout/ Language (Console).
 7) Desktop Keyboard Layout # Default is gb (United Kingdom)
 8) Bootloader # Grub2, Syslinux, Systemd-boot (UEFI)
 9) Root password # Very important as iso is password free
@@ -27,23 +27,23 @@ Installer Menu includes:
 === Post Install ===
 ====================
 
-Autologin is disabled during install, you will end up at a log in prompt. Enter your chosen username and password to log in.
+Autologin is disabled in new install, you will end up at a log in prompt. Enter your chosen username and password to log in.
 
 ===Pacman===
 
 To get pacman running you will need a working network connection, either wired [connects automatically] or wireless [click icon on panel and find your named network].
 
-Open a terminal [Super + t] then update pacmand database:
+Open a terminal [Super + t] then update first update pacman keys:
 
-    sudo pacman -Syy
+    packey
+
+Then update pacman database and packages:
+
+    sudo pacman -Syyu
 
 Then you can install a package of choice using:
 
 	sudo pacman -S <package_name>
-
-If you have not set your local mirrors during install you should edit them. Either use config_edit script and select mirrorlist or visit https://archlinux.org/mirrorlist/.
-
-Will link to arch wiki page for more information: https://wiki.archlinux.org/title/Mirrors
 
 ====Sound====
 
@@ -73,9 +73,6 @@ For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 To allow Vim to work from Openbox menu, had to add a link to lxterminal. If you wish to change terminal or even use xterm then simply remove soft link using in a terminal.
 
 sudo rm /usr/bin/xterm
-
-
-
 
 Desktop Keyboard Layout Live:
 

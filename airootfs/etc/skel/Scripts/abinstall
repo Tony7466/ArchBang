@@ -22,7 +22,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #-------------------------------------------------------------------------------
-# Run this script after your first boot with archlinux (as root)
+# Run this script after your first boot with ArchBang (as root)
 
 
 #GLOBAL VARIABLES {{{
@@ -767,9 +767,10 @@ install_archbang(){
   print_title "INSTALL ARCHBANG - www.archbang.org"
   print_info "Installing please wait..."
   echo
+  
   # copy source to new install
   AIROOTFS="/run/archiso/airootfs/"
-  NOF=$(find ${AIROOTFS} | wc -l)
+  NOF=$(find ${AIROOTFS} -type f | wc -l)
   rsync -a --progress $AIROOTFS $MNT/ | pv -lep -s ${NOF} > /dev/null
 
   # add mirrorlist or modify post install?
@@ -786,33 +787,36 @@ install_archbang(){
 
   # Clean up new install scripts and configs
   rm -f ${MNT}/home/ablive/Scripts/{abinstall} &> /dev/null
-# remove installers from menu and conky
+  
+  # remove installers from menu and conky
   sed -i '/Install/,+2d' ${MNT}/home/ablive/.config/openbox/menu.xml
   sed -i '/Install/d' ${MNT}/home/ablive/.config/conky/conky.conf
-# remove autologin from install
+  
+  # remove autologin from install
   rm -r ${MNT}/etc/systemd/system/getty@tty1.service.d &>/dev/null
 
-# clean out archiso files from install
+  # clean out archiso files from install
   find ${MNT}/usr/lib/initcpio -name archiso* -type f -exec rm '{}' \;
   rm -r ${MNT}/etc/initcpio
+  
   # systemd
   rm ${MNT}/etc/systemd/system/default.target &> /dev/null
   # add variable and then mv file to auto-storage.conf?
   sed -i 's/volatile/auto/g' /${MNT}/etc/systemd/journald.conf.d/volatile-storage.conf
   mv /${MNT}/etc/systemd/journald.conf.d/volatile-storage.conf /${MNT}/etc/systemd/journald.conf.d/auto-storage.conf
+  
   # remove pacman-init.service and etc-gpg thing
   rm -f ${MNT}/etc/systemd/system/pacman-init.service
   rm -f ${MNT}/etc/systemd/system/etc-pacman.d-gnupg.mount
-  # path to desktop files
-  path="${MNT}/usr/share/applications"
-
+  
   # restore desktop files
+  path="${MNT}/usr/share/applications"
   desk_file='avahi-discover bvnc bssh volumeicon gparted conky tint2 pcmanfm-desktop-pref qv4l2 qvidcap vim'
-
   for un in ${desk_file}
   do
      mv ${path}/${un}.hide ${path}/${un}.desktop
   done
+  
   # clean out ablive overlay files from /etc/skel on new install
   rm -r ${MNT}/etc/skel &>/dev/null
 
