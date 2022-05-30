@@ -795,9 +795,9 @@ install_archbang(){
   # remove autologin from install
   rm -r ${MNT}/etc/systemd/system/getty@tty1.service.d &>/dev/null
 
-  # clean out archiso files from install
-  find ${MNT}/usr/lib/initcpio -name archiso* -type f -exec rm '{}' \;
-  rm -r ${MNT}/etc/initcpio
+  # clean out archiso files from install remove package post install.
+  #find ${MNT}/usr/lib/initcpio -name archiso* -type f -exec rm '{}' \;
+  #rm -r ${MNT}/etc/initcpio
   
   # systemd
   rm ${MNT}/etc/systemd/system/default.target &> /dev/null

@@ -19,13 +19,13 @@ element-text, element-icon {
 }
 
 * {
-    dark-black: #1e2122;
-    bg-col:  #222526;
+    dark-black: #2f343f;
+    bg-col:  #2f343f;
     border-col: #282b2c;
-    blue: #496B6A;
-    selected-col: #282b2c;
+    blue: #AB5ABF;
+    selected-col: #AB5ABF;
 	fg-col: #FFFFFF;
-    fg-col2: #496B6A;
+    fg-col2: #FFFFFF;
     width: 600;
 }
 
@@ -53,7 +53,7 @@ inputbar {
 prompt {
     background-color: @blue;
     padding: 5px 5px 0px;
-    text-color: @bg-col;
+    text-color: @fg-col;
     border-radius: 3px;
 }
 

@@ -174,7 +174,6 @@ tar
 texinfo
 usbutils
 util-linux
-vi
 which
 xfsprogs
 intel-ucode
@@ -185,4 +184,3 @@ mkinitcpio-archiso
 mkinitcpio-nfs-utils
 nbd
 edk2-shell
-

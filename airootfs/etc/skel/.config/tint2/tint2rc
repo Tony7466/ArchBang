@@ -26,12 +26,12 @@ border_width = 2
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #496B6A 50
-border_color = #496B6A 50
-background_color_hover = #496B6A 50
-border_color_hover = #496B6A 50
-background_color_pressed = #496B6A 50
-border_color_pressed = #496B6A 50
+background_color = #AB5ABF 50
+border_color = #AB5ABF 50
+background_color_hover = #AB5ABF 50
+border_color_hover = #AB5ABF 50
+background_color_pressed = #AB5ABF 50
+border_color_pressed = #AB5ABF 50
 
 # Background 3: Active task, Active taskbar, Inactive taskbar, Panel
 rounded = 0
@@ -52,12 +52,12 @@ border_width = 0
 border_sides = TBLR
 border_content_tint_weight = 0
 background_content_tint_weight = 0
-background_color = #496B6A 71
-border_color = #496B6A 71
-background_color_hover = #496B6A 71
-border_color_hover = #496B6A 71
-background_color_pressed = #496B6A 71
-border_color_pressed = #496B6A 71
+background_color = #AB5ABF 71
+border_color = #AB5ABF 71
+background_color_hover = #AB5ABF 71
+border_color_hover = #AB5ABF 71
+background_color_pressed = #AB5ABF 71
+border_color_pressed = #AB5ABF 71
 
 # Background 5: 
 rounded = 1
@@ -172,7 +172,7 @@ launcher_item_app = /usr/share/applications/lxterminal.desktop
 
 #-------------------------------------
 # Clock
-time1_format = %a %d %B  %H:%M
+time1_format = %a %d %B %Y %H:%M
 time2_format = 
 time1_font = Sans 9
 time1_timezone = 

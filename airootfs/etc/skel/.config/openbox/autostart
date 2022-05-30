@@ -1,5 +1,5 @@
 # Set wallpaper
-feh --bg-fill ~/Backgrounds/crashing.jpg &
+feh --bg-fill ~/Backgrounds/flowers.jpg &
 
 # Enable as required
 #xbacklight -set 100 &
