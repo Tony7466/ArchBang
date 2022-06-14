@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Configure live iso
-
+# 
 set -e -u -x
 shopt -s extglob
 
@@ -18,10 +18,6 @@ chmod -c 0440 /etc/sudoers
 
 # Hostname
 echo "archbang" > /etc/hostname
-
-#  Hosts file to archbang (test version)
-# this needs to change
-#sed -i "0,/127.0.0.1/s/localhost/archbang/2" /etc/hosts
 
 # Vconsole
 echo "KEYMAP=gb" > /etc/vconsole.conf
@@ -41,20 +37,6 @@ ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
 useradd -m -p "" -g users -G "wheel" -s /bin/bash ablive
 chown ablive /home/ablive
 
-# /etc/skel now available...
-
-# remove desktop files
-path="/usr/share/applications"
-
-desk_file='avahi-discover bvnc bssh volumeicon gparted conky tint2 pcmanfm-desktop-pref qv4l2 qvidcap vim'
-
-for rem in ${desk_file}
-do
-   mv ${path}/${rem}.desktop ${path}/${rem}.hide
-done
-
-# soft link to xterm, to allow vim to work from Openbox menu
-#ln -s /usr/bin/lxterminal /usr/bin/xterm
 
 # Start required systemd services
 systemctl enable {pacman-init,NetworkManager}.service -f

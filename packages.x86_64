@@ -22,20 +22,19 @@ alsa-utils
 alsa-oss
 
 # Window Manager Stuff
+i3-wm
+i3status
+i3lock
+rofi
 laptop-detect
 xdg-user-dirs
 conky
-tint2
-openbox
 archlinux-xdg-menu
 gsimplecal
-lxappearance-gtk3
-obconf
 cbatticon
 lxterminal
 l3afpad
 ncdu
-rofi
 pragha
 vim
 gvfs
@@ -64,12 +63,12 @@ pkgfile
 ncdu
 arch-install-scripts
 wget
-firefox
-#netsurf
+#firefox
+netsurf
 scrot
 pacman-contrib
 tlp
-archinstall
+#archinstall
 
 # Network Tools
 tcl

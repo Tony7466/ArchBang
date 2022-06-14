@@ -70,10 +70,6 @@ For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
 ====Quick Tips====
 
-To allow Vim to work from Openbox menu, had to add a link to lxterminal. If you wish to change terminal or even use xterm then simply remove soft link using in a terminal.
-
-sudo rm /usr/bin/xterm
-
 Desktop Keyboard Layout Live:
 
-Check file ~/.config/openbox/autostart -- edit line setxkbmap gb & (change gb to your keyboard layout)
+Check file ~/.config/i3/config -- edit line setxkbmap gb & (change gb to your keyboard layout)

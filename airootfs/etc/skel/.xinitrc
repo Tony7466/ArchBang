@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 systemctl --user import-environment DISPLAY
 
@@ -9,5 +9,5 @@ fi
 
 /usr/bin/xdg-user-dirs-update
 
-exec openbox-session 
+exec i3 
 

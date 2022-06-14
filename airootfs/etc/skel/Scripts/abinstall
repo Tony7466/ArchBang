@@ -414,7 +414,7 @@ select_xkeymap(){
     read_input_text "Confirm keymap: $XKEYMAP"
   done
 # Desktop keymap
-  sed -i "s/\gb/${XKEYMAP}/g" $MNT/home/ablive/.config/openbox/autostart
+  sed -i "s/\gb/${XKEYMAP}/g" $MNT/home/ablive/.config/i3/config
 # Global setting
   sed -i "s/gb/${XKEYMAP}/g" $MNT/etc/X11/xorg.conf.d/01-keyboard-layout.conf
 }
@@ -789,8 +789,8 @@ install_archbang(){
   rm -f ${MNT}/home/ablive/Scripts/{abinstall} &> /dev/null
   
   # remove installers from menu and conky
-  sed -i '/Install/,+2d' ${MNT}/home/ablive/.config/openbox/menu.xml
-  sed -i '/Install/d' ${MNT}/home/ablive/.config/conky/conky.conf
+  sed -i '/abinstall/d' ${MNT}/home/ablive/.config/i3/config
+  sed -i '/Installer/d' ${MNT}/home/ablive/.config/conky/conky.conf
   
   # remove autologin from install
   rm -r ${MNT}/etc/systemd/system/getty@tty1.service.d &>/dev/null
@@ -811,7 +811,7 @@ install_archbang(){
   
   # restore desktop files
   path="${MNT}/usr/share/applications"
-  desk_file='avahi-discover bvnc bssh volumeicon gparted conky tint2 pcmanfm-desktop-pref qv4l2 qvidcap vim'
+  desk_file='avahi-discover bvnc bssh volumeicon gparted conky pcmanfm-desktop-pref qv4l2 qvidcap vim'
   for un in ${desk_file}
   do
      mv ${path}/${un}.hide ${path}/${un}.desktop

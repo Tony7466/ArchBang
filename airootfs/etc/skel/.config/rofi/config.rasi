@@ -2,7 +2,6 @@ configuration{
     modi: "drun,window,ssh";
     font: "Sans 10";
     show-icons: true;
-    icon-theme: "AB-autumn-icons";
     terminal: "lxterminal";
     drun-display-format: "{icon} {name}";
     display-drun: " Select or Type: ";
@@ -21,9 +20,9 @@ element-text, element-icon {
 * {
     dark-black: #2f343f;
     bg-col:  #2f343f;
-    border-col: #282b2c;
-    blue: #AB5ABF;
-    selected-col: #AB5ABF;
+    border-col: #657F3D;
+    blue: #657F3D;
+	selected-col: #657F3D;
 	fg-col: #FFFFFF;
     fg-col2: #FFFFFF;
     width: 600;
@@ -31,7 +30,7 @@ element-text, element-icon {
 
 window {
     padding: 20px;
-    height: 360px;
+    height: 300px;
     border: 3px;
     border-color: @border-col;
     background-color: @bg-col;
