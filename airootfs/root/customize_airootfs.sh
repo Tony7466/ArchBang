@@ -5,7 +5,7 @@ set -e -u -x
 shopt -s extglob
 
 # Set locales
-sed -i 's/#\(en_GB\.UTF-8\)/\1/' /etc/locale.gen
+sed -i 's/#\(en_US\.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 
 # Allow Parallel Downloads
@@ -20,18 +20,18 @@ chmod -c 0440 /etc/sudoers
 echo "archbang" > /etc/hostname
 
 # Vconsole
-echo "KEYMAP=gb" > /etc/vconsole.conf
+echo "KEYMAP=us" > /etc/vconsole.conf
 echo "FONT=" >> /etc/vconsole.conf
 
 # Locale
-echo "LANG=en_GB.UTF-8" > /etc/locale.conf
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "LC_COLLATE=C" >> /etc/locale.conf
 
 # Set clock to UTC
 hwclock --systohc --utc
 
 # Timezone
-ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+ln -sf /usr/share/zoneinfo/Canada/Montreal /etc/localtime
 
 # Add live user
 useradd -m -p "" -g users -G "wheel" -s /bin/bash ablive

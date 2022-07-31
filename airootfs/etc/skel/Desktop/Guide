@@ -35,7 +35,7 @@ To get pacman running you will need a working network connection, either wired [
 
 Open a terminal [Super + t] then update first update pacman keys:
 
-    packey
+    pac-key
 
 Then update pacman database and packages:
 

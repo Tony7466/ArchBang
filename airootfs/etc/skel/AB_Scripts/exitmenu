@@ -9,8 +9,8 @@ chosen=$(echo -e "$options" | rofi -p 'Select Option' -dmenu )
 case $chosen in
 	"Log Out") i3 exit ;;
 
-	"Reboot") systemctl reboot ;;
+	"Reboot") reboot ;;
 
-	"Poweroff") sudo poweroff ;;
+	"Poweroff") poweroff ;;
 esac
 

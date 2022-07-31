@@ -4,7 +4,7 @@ export TERMINAL=lxterminal
 export BROWSER=firefox
 
 # Add scripts path
-export PATH=$PATH:~/Scripts
+export PATH=$PATH:~/AB_Scripts
 
 alias ls='ls --color=auto'
 

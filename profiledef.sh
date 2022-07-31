@@ -2,7 +2,7 @@
 # shellcheck disable=SC2034
 # Modified for ArchBang
 
-iso_name="archbang-summer-beta"
+iso_name="archbang-summer"
 iso_label="ARCHBANG_$(date +%d%m)"
 iso_publisher="ArchBang Linux <https://www.archbang.org>"
 iso_application="ArchBang Linux Live/Rescue Iso"
@@ -15,6 +15,6 @@ airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' 
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/root"]="0:0:750"
-  ["/etc/skel/Scripts/"]="0:0:755"
+  ["/etc/skel/AB_Scripts/"]="0:0:755"
   ["/root/mvuser"]="0:0:755"
 )

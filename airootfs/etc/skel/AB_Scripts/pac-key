@@ -4,5 +4,5 @@
 
 echo "Pacman Key setup..."
 sudo pacman-key --init
-sudo pacman-key --populate archlinux
+sudo pacman-key --populate 
 echo "Complete..."

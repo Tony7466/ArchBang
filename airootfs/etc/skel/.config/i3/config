@@ -13,30 +13,24 @@
 # Modified by Mr Green for ArchBang (mrgreen@archbang.org)
 #
 
-set $mod Mod4
+# Variables
+# Mod4 = Super (Windows) key
+set $mod Mod4 
+
+# To stop timer icon when starting applications
 set $ei --no-startup-id
 
-# look at fonts!
+# Set browser application
+set $browser firefox 
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-#font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# Font
 font pango:DejaVu Sans 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start lxterminal for now...
-bindsym $mod+Return exec $ei lxterminal
-
 # kill focused window
 bindsym $mod+Shift+q kill
-
-# start rofi launcher
-bindsym $mod+d exec $ei rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -column 3 -font 'Sans 10'
 
 # change focus
 bindsym $mod+j focus left
@@ -85,6 +79,21 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # Arrow Keys to resize
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -126,35 +135,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
-bindsym $mod+r mode "resize"
 
 # Theme for ArchBang i3
 # colour of                 border  backg   text    indica  child_border
@@ -190,26 +170,30 @@ bar {
 # ArchBang keyboard short-cuts!
 #
 
+# Start rofi launcher
+bindsym $mod+d exec $ei rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -column 3 -font 'Sans 10'
+
 # Terminal
 bindsym $mod+t exec $ei lxterminal
+bindsym $mod+Return exec $ei lxterminal
 
 # Browser and move to workspace 3
-bindsym $mod+w exec $ei firefox
-assign [class="firefox"] 3
+bindsym $mod+w exec $ei $browser 
+assign [class=$browser] 3
 
 # File Manager
-bindsym $mod+f exec $ei pcmanfm
+bindsym $mod+f exec $ei thunar 
 
 # Editor
 bindsym $mod+e exec $ei l3afpad
 
 # Abinstall
-bindsym $mod+i exec $ei lxterminal -e "sudo /home/ablive/Scripts/abinstall"
+bindsym $mod+i exec $ei lxterminal -e "sudo /home/ablive/AB_Scripts/abinstall"
 
-# Show i3 key binds in rofi
+# Show i3 key binds in rofi change for new settings script
 bindsym $mod+b exec $ei i3-binds
 
-# Exit Menu
+# Exit Menu change for new settings script
 bindsym $mod+Shift+x exec $ei exitmenu
 
 #
@@ -230,7 +214,11 @@ exec $ei cbatticon
 # Volume!
 exec $ei volumeicon
 
-# Desktop Keymap
-exec $ei setxkbmap gb
+# Desktop Keymap added option to switch layouts using Alt + Shift. 
+exec $ei setxkbmap -layout "us,gb" -option "grp:alt_shift_toggle"  
 
+# Polkit
+exec $ei lxpolkit
 
+# Turn off touchpad
+#exec $ei /usr/bin/synclient TouchpadOff=1 

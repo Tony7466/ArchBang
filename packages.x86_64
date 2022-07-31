@@ -7,8 +7,10 @@ xz
 lzop
 
 # File manager
-pcmanfm-gtk3
+#pcmanfm-gtk3
 udisks2
+thunar
+thunar-volman
 
 # Xorg
 xorg-server
@@ -35,8 +37,8 @@ cbatticon
 lxterminal
 l3afpad
 ncdu
-pragha
-vim
+duf
+vi
 gvfs
 
 # Icon set
@@ -63,12 +65,11 @@ pkgfile
 ncdu
 arch-install-scripts
 wget
-#firefox
-netsurf
+firefox
+#netsurf
 scrot
 pacman-contrib
 tlp
-#archinstall
 
 # Network Tools
 tcl
@@ -183,3 +184,4 @@ mkinitcpio-archiso
 mkinitcpio-nfs-utils
 nbd
 edk2-shell
+archlinux-keyring
