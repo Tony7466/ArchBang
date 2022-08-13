@@ -1,3 +1,9 @@
 Notes for ArchBang iso image
 
-Added Thunar Thunar-Volman plokit rule.
+updated archiso 
+
+added custom script hook
+
+minor edit to build script to remove only initramfs from /boot
+
+test
