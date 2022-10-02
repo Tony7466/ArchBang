@@ -1,9 +1,7 @@
 Notes for ArchBang iso image
+ 
+test autumn release install?
 
-updated archiso 
+check conky, i3 config and AB_Scripts folder.
 
-added custom script hook
 
-minor edit to build script to remove only initramfs from /boot
-
-test

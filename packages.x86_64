@@ -40,9 +40,12 @@ ncdu
 duf
 vi
 gvfs
+lxappearance-gtk3
 
-# Icon set
+# Gtk, Icons, Theme
+lxsession-gtk3
 arc-icon-theme
+arc-solid-gtk-theme
 
 # Media
 volumeicon
@@ -83,6 +86,7 @@ networkmanager
 network-manager-applet
 broadcom-wl
 rp-pppoe
+iwd
 
 # Develop Tools
 dialog
@@ -185,3 +189,5 @@ mkinitcpio-nfs-utils
 nbd
 edk2-shell
 archlinux-keyring
+
+

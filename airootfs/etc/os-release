@@ -1,5 +1,5 @@
-NAME="ArchBang Linux"
+NAME=ArchBang
 ID=arch
-PRETTY_NAME="ArchBang Linux"
+PRETTY_NAME=ArchBang
 ANSI_COLOR="0;32"
-
+HOME_URL='https://archbang.org'

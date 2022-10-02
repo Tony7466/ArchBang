@@ -779,12 +779,16 @@ install_archbang(){
   cp /etc/X11/xorg.conf.d/20-gpudriver.conf ${MNT}/etc/X11/xorg.conf.d/20-gpudriver.conf &>/dev/null
 
   # Clean up new install scripts and configs
-  rm -f ${MNT}/home/ablive/AB_Scripts/{abinstall} &> /dev/null
+  rm -f ${MNT}/home/ablive/AB_Scripts/{abinstall,altmod} &> /dev/null
   
   # remove installers from menu and conky
-  sed -i '/abinstall/d' ${MNT}/home/ablive/.config/i3/config
+  sed -i 's/abinstall//gi' ${MNT}/home/ablive/.config/i3/config
   sed -i '/Installer/d' ${MNT}/home/ablive/.config/conky/conky.conf
   
+  # remove altmod from conky and i3 config
+  sed -i '/bindsym Mod1/d' ${MNT}/home/ablive/.config/i3/config # case sensitive?
+  sed -i '/Alt Switch/d' ${MNT}/home/ablive/.config/conky/conky.conf
+
   # remove autologin from install
   rm -r ${MNT}/etc/systemd/system/getty@tty1.service.d &>/dev/null
 
@@ -896,7 +900,7 @@ configure_mkinitcpio(){
     cpu_id="amd"
   fi
   # sed would be an easier option....
-  mv "${MNT}/etc/mkinitcpio.d/linux.preset.ab" "${MNT}/etc/mkinitcpio.d/linux.preset"
+  #mv "${MNT}/etc/mkinitcpio.d/linux.preset.ab" "${MNT}/etc/mkinitcpio.d/linux.preset"
   # delete whole hooks line, replace with installed version
   sed -i '/^HOOKS/c\HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)' "${MNT}/etc/mkinitcpio.conf"
   

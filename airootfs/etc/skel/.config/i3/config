@@ -138,33 +138,33 @@ bindsym $mod+Shift+r restart
 
 # Theme for ArchBang i3
 # colour of                 border  backg   text    indica  child_border
-client.focused              #657F3D #657F3D #d8dee8 #657F3D #657F3D
+client.focused              #6B4925 #6B4925 #d8dee8 #6B4925 #6B4925
 client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f
 
-# Set border size
-default_border normal 2
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 
     colors {
-        background #2f343f 
+        background #100B05 
         statusline #d8dee8 # text colour
         separator #4b5262
 
         # colors			    border  backgro text
-        focused_workspace       #657F3D #657F3D #d8dee8
+        focused_workspace       #6B4925 #6B4925 #d8dee8
         active_workspace        #2f343f #2f343f #d8dee8
         inactive_workspace      #2f343f #2f343f #d8dee8
         urgent_workspace        #2f343f #ebcb8b #2f343f
     }
         status_command i3status
 }
+
+# No borders
+default_border pixel 2
 
 #
 # ArchBang keyboard short-cuts!
@@ -176,6 +176,8 @@ bindsym $mod+d exec $ei rofi -lines 12 -padding 18 -width 60 -location 0 -show d
 # Terminal
 bindsym $mod+t exec $ei lxterminal
 bindsym $mod+Return exec $ei lxterminal
+
+bindsym Mod1+m exec $ei altmod
 
 # Browser and move to workspace 3
 bindsym $mod+w exec $ei $browser 
@@ -200,7 +202,7 @@ bindsym $mod+Shift+x exec $ei exitmenu
 # Autostart
 #
 # Wallpaper
-exec $ei feh --bg-scale ~/Backgrounds/marsh.jpg 
+exec $ei feh --bg-scale ~/Backgrounds/autumn.jpg 
 
 # Network Manager Applet
 exec $ei nm-applet 

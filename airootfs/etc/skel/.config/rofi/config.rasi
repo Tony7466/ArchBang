@@ -18,11 +18,11 @@ element-text, element-icon {
 }
 
 * {
-    dark-black: #2f343f;
-    bg-col:  #2f343f;
-    border-col: #657F3D;
-    blue: #657F3D;
-	selected-col: #657F3D;
+    dark-black: #100b05;
+    bg-col:  #100b05;
+    border-col: #6B4925;
+    blue: #6B4925;
+	selected-col: #6B4925;
 	fg-col: #FFFFFF;
     fg-col2: #FFFFFF;
     width: 600;

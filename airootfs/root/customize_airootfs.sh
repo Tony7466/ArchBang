@@ -44,3 +44,6 @@ systemctl enable {pacman-init,NetworkManager}.service -f
 #systemctl set-default multi-user.target
 systemctl set-default graphical.target
 
+# Revert from archiso preset to default preset
+cp -rf "/usr/share/mkinitcpio/hook.preset" "/etc/mkinitcpio.d/linux.preset"
+sed -i 's?%PKGBASE%?linux?' "/etc/mkinitcpio.d/linux.preset"
