@@ -7,7 +7,6 @@ xz
 lzop
 
 # File manager
-#pcmanfm-gtk3
 udisks2
 thunar
 thunar-volman
@@ -17,6 +16,7 @@ xorg-server
 xorg-xinit
 xorg-xkill
 ttf-dejavu
+xorg-xrdb
 
 # Sound
 alsa-firmware
@@ -26,21 +26,23 @@ alsa-oss
 # Window Manager Stuff
 i3-wm
 i3status
-i3lock
+#i3lock
 rofi
 laptop-detect
 xdg-user-dirs
 conky
-archlinux-xdg-menu
-gsimplecal
+#archlinux-xdg-menu
+#gsimplecal
 cbatticon
 lxterminal
+rxvt-unicode
 l3afpad
-ncdu
+#ncdu
 duf
 vi
 gvfs
 lxappearance-gtk3
+htop
 
 # Gtk, Icons, Theme
 lxsession-gtk3

@@ -407,9 +407,9 @@ select_xkeymap(){
     read_input_text "Confirm keymap: $XKEYMAP"
   done
 # Desktop keymap
-  sed -i "s/\"us,gb\"/\"${XKEYMAP},gb\"/g" $MNT/home/ablive/.config/i3/config
+  sed -i "s/\"us\"/\"${XKEYMAP}\"/g" $MNT/home/ablive/.config/i3/config
 # Global setting
-  sed -i "s/gb/${XKEYMAP}/g" $MNT/etc/X11/xorg.conf.d/01-keyboard-layout.conf
+  sed -i "s/us/${XKEYMAP}/g" $MNT/etc/X11/xorg.conf.d/01-keyboard-layout.conf
 }
 #}}}
 

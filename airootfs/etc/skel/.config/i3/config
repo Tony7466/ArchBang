@@ -175,7 +175,10 @@ bindsym $mod+d exec $ei rofi -lines 12 -padding 18 -width 60 -location 0 -show d
 
 # Terminal
 bindsym $mod+t exec $ei lxterminal
-bindsym $mod+Return exec $ei lxterminal
+
+# urxvt terminal then force borderless
+bindsym $mod+Return exec $ei urxvt 
+for_window [class="URxvt"] border pixel 0
 
 bindsym Mod1+m exec $ei altmod
 
@@ -198,6 +201,9 @@ bindsym $mod+b exec $ei i3-binds
 # Exit Menu change for new settings script
 bindsym $mod+Shift+x exec $ei exitmenu
 
+# Display Guide in editor
+bindsym $mod+g exec $ei l3afpad /home/ablive/Desktop/Guide
+
 #
 # Autostart
 #
@@ -216,8 +222,8 @@ exec $ei cbatticon
 # Volume!
 exec $ei volumeicon
 
-# Desktop Keymap added option to switch layouts using Alt + Shift. 
-exec $ei setxkbmap -layout "us,gb" -option "grp:alt_shift_toggle"  
+# Desktop Keymap layout.... 
+exec $ei setxkbmap -layout "us"  
 
 # Polkit
 exec $ei lxpolkit

@@ -19,7 +19,7 @@ Installer Menu includes:
 5) Hardware Clock # UTC or localtime (user preference can affect windows dual boot)
 6) Locale # Keyboard layout/ Language (Console).
 7) Desktop Keyboard Layout # Default is gb (United Kingdom)
-8) Bootloader # Grub2, Syslinux, Systemd-boot (UEFI)
+8) Bootloader # Grub2, Syslinux, Systemd-boot (UEFI), skip if you already have a working bootloader than you can add ArchBang too.
 9) Root password # Very important as iso is password free
 10) Create User # Set up new user for install and password
 
@@ -33,6 +33,8 @@ Autologin is disabled in new install, you will end up at a log in prompt. Enter 
 
 To get pacman running you will need a working network connection, either wired [connects automatically] or wireless [click icon on panel and find your named network].
 
+Check/Setup mirrorlist you may have it already setup via installer [working network] or you can check it either in a terminal or via l3afpad. To make any changes you will need to use sudo.
+
 Open a terminal [Super + t] then update first update pacman keys:
 
     pac-key
@@ -44,6 +46,7 @@ Then update pacman database and packages:
 Then you can install a package of choice using:
 
 	sudo pacman -S <package_name>
+
 
 ====Sound====
 
@@ -72,4 +75,6 @@ For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
 Desktop Keyboard Layout Live:
 
-Check file ~/.config/i3/config -- edit line setxkbmap gb & (change gb to your keyboard layout)
+Check file ~/.config/i3/config -- edit line setxkbmap "us" (change us to your keyboard layout)
+
+If your keyboard does have Super key then you can switch to Alt by using Alt+m. 

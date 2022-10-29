@@ -1,0 +1,25 @@
+! ArchBang URxvt terminal theme
+! Made some basic changes to colours
+! Transparent ;-)
+! Modified by Mr Green [mrgreen@archbang.org]
+
+
+URxvt*background: black
+URxvt*foreground: white
+
+URxvt*font: xft:Monospace:size=9:antialias=true
+
+URxvt.scrollBar: false
+
+! blue
+URxvt.color4:  #6495ed
+URxvt.color12: #6495ed
+
+!green
+URvxt.color2:  #2E8B57
+URxvt.color10: #2E8B57
+
+URxvt*inheritPixmap: true
+URxvt*transparent: true
+! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*shading: 35
