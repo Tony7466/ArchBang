@@ -49,7 +49,7 @@ Things like themes, background, window manager and adding in applications requir
 
 This is beyond the scope of this guide.
 
-MY project website/blog you can find at (https://archbang.org)
+My project website/blog you can find at (https://archbang.org)
 
 
 

@@ -6,6 +6,9 @@ p7zip
 xz
 lzop
 
+# copy to ram feature not really required but I want to test it.
+pv
+
 # File manager
 udisks2
 thunar
@@ -31,15 +34,10 @@ rofi
 laptop-detect
 xdg-user-dirs
 conky
-#archlinux-xdg-menu
-#gsimplecal
 cbatticon
 lxterminal
-rxvt-unicode
 l3afpad
-#ncdu
-duf
-vi
+vim
 gvfs
 lxappearance-gtk3
 htop
@@ -62,7 +60,6 @@ fontconfig
 kbd
 
 # Extra Apps
-#slock
 feh
 at
 openssh
@@ -71,7 +68,6 @@ ncdu
 arch-install-scripts
 wget
 firefox
-#netsurf
 scrot
 pacman-contrib
 tlp
@@ -99,7 +95,6 @@ rsync
 pv
 dosfstools
 btrfs-progs
-btop
 parted
 gptfdisk
 ddrescue
@@ -118,8 +113,6 @@ efibootmgr
 
 # Video drivers
 xf86-input-evdev
-#xf86-input-keyboard
-#xf86-input-mouse
 xf86-input-synaptics
 xf86-input-void
 xf86-video-ati

@@ -9,7 +9,7 @@ backup=/etc/pacman.d/mirrorlist.abbackup
 [[ -f ${backup} ]] && sudo cp ${backup} ${mirror} || sudo cp ${mirror} ${backup}
 
 # Calculate number of lines until first country servers
-LINES=$(expr $(sed -n '0,/Australia/p' ${mirror} | wc -l) - 1)
+LINES=$(expr $(sed -n '0,/Argentina/p' ${mirror} | wc -l) - 1)
 
 # delete LINES from mirrorlist.
 sudo sed -i "1,${LINES}d" ${mirror}

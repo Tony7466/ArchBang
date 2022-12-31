@@ -20,9 +20,9 @@ element-text, element-icon {
 * {
     dark-black: #100b05;
     bg-col:  #100b05;
-    border-col: #6B4925;
-    blue: #6B4925;
-	selected-col: #6B4925;
+    border-col: #2f343f;
+    blue: #2f343f;
+	selected-col: #2f343f;
 	fg-col: #FFFFFF;
     fg-col2: #FFFFFF;
     width: 600;

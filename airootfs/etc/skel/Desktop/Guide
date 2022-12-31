@@ -8,24 +8,13 @@ Please do not post issues or problems related to ArchBang on Archlinux forums it
 
 To run installer either run sudo abinstall in a terminal of use Super + i keybinding
 
-If you wish to set up partitions beofre running installer either do so manually in a terminal or use gparted. Once complete then simply mount new partitions to /mnt. 
+If you wish to set up partitions before running installer either do so manually in a terminal or use gparted. Once complete then simply mount new partitions to /mnt. 
 
-Installer Menu includes:
+The installer is menu driven and very easy to follow.
 
-1) Partition Scheme # Setup target device for install and mount partitons
-2) Install ArchBang # transfers iso image to target device
-3) Hostname # Your given machine name default is 'archbang'
-4) Location # Timezone and Pacman Servers [mirrorlist] depends on network connection.
-5) Hardware Clock # UTC or localtime (user preference can affect windows dual boot)
-6) Locale # Keyboard layout/ Language (Console).
-7) Desktop Keyboard Layout # Default is gb (United Kingdom)
-8) Bootloader # Grub2, Syslinux, Systemd-boot (UEFI), skip if you already have a working bootloader than you can add ArchBang too.
-9) Root password # Very important as iso is password free
-10) Create User # Set up new user for install and password
+Another online guide https://itsfoss.com/install-archbang/
 
-====================
 === Post Install ===
-====================
 
 Autologin is disabled in new install, you will end up at a log in prompt. Enter your chosen username and password to log in.
 
@@ -33,27 +22,20 @@ Autologin is disabled in new install, you will end up at a log in prompt. Enter 
 
 To get pacman running you will need a working network connection, either wired [connects automatically] or wireless [click icon on panel and find your named network].
 
-Check/Setup mirrorlist you may have it already setup via installer [working network] or you can check it either in a terminal or via l3afpad. To make any changes you will need to use sudo.
+Check/Setup mirrorlist you may have it already setup via installer [working network] or you can check it in a terminal by running abserver script.
 
-Open a terminal [Super + t] then update first update pacman keys:
+In a terminal [Super + t] run rthe folowing to update archlinux-keyring:
 
-    pac-key
+    sudo pacman-key --init
+	sudo pacman-key --populate
 
-Then update pacman database and packages:
+Then update pacman keyring and packages:
 
-    sudo pacman -Syyu
+    sudo pacman -Syyu archlinux-keyring
 
 Then you can install a package of choice using:
 
 	sudo pacman -S <package_name>
-
-
-====Sound====
-
-If you don't get any sound you can right click on volume icon on panel then
-'Open Mixer' or in a terminal run alsamixer
-To unmute a channel press M to raise levels use up and down keys. To exit and
-save hit Escape key
 
 ====Disable Blank Screen After 10 Minutes====
 
@@ -73,8 +55,6 @@ For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
 ====Quick Tips====
 
-Desktop Keyboard Layout Live:
+Desktop Keyboard Layout Live heck file ~/.config/i3/config -- edit line setxkbmap "us" (change us to your keyboard layout)
 
-Check file ~/.config/i3/config -- edit line setxkbmap "us" (change us to your keyboard layout)
-
-If your keyboard does have Super key then you can switch to Alt by using Alt+m. 
+No Super key [Windows Logo] on your keyboard then you can switch to Alt by using Alt+m. 
