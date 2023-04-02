@@ -136,9 +136,26 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+#
+# Keybinds and setup for gaps
+#
+gaps inner 3
+gaps outer 3
+
+bindsym $mod+plus  gaps inner current plus 5
+bindsym $mod+minus gaps inner current minus 5
+bindsym $mod+n     gaps inner current set 0
+
+bindsym $mod+Shift+plus  gaps inner all plus 5
+bindsym $mod+Shift+minus gaps inner all minus 5
+bindsym $mod+Shift+n     gaps inner all set 0
+
+# Smart gaps if you have one window or spilt container on a workspace
+smart_gaps on
+
 # Theme for ArchBang i3
 # colour of                 border  backg   text    indica  child_border
-client.focused              #EEEEEE #EEEEEE #d8dee8 #EEEEEE #EEEEEE
+client.focused              #1D462F #EEEEEE #d8dee8 #1D462F #1D462F
 client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
@@ -146,7 +163,7 @@ client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f
 
 # Set border size
-default_border pixel 2
+default_border pixel 3
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -157,12 +174,12 @@ bar {
         separator #4b5262
 
         # colors                border  backgro text
-        focused_workspace       #ffffff #000000 #d8dee8
+        focused_workspace       #1D462F #1D462F #d8dee8
         active_workspace        #d8dee8 #040506 #222222
         inactive_workspace      #2f343f #040506 #d8dee8
         urgent_workspace        #2f343f #2f343f #d8dee8
     }
-       status_command i3status
+       status_command i3blocks
 }
 
 #
@@ -196,7 +213,7 @@ bindsym $mod+i exec $ei lxterminal -e "sudo /home/ablive/AB_Scripts/abinstall"
 bindsym $mod+b exec $ei i3-binds
 
 # Exit Menu change for new settings script
-bindsym $mod+Shift+x exec $ei exitmenu
+#bindsym $mod+Shift+x exec $ei exitmenu
 
 # Display Guide in editor
 bindsym $mod+g exec $ei l3afpad /home/ablive/Desktop/Guide
@@ -205,7 +222,8 @@ bindsym $mod+g exec $ei l3afpad /home/ablive/Desktop/Guide
 # Autostart
 #
 # Wallpaper
-exec $ei feh --bg-scale ~/Backgrounds/archbang.jpg
+exec $ei feh --bg-scale ~/Backgrounds/Spring.jpg
+#exec_always $ei nitrogen --restore
 
 # Network Manager Applet
 exec $ei nm-applet 
@@ -227,3 +245,4 @@ exec $ei lxpolkit
 
 # Turn off touchpad
 #exec $ei /usr/bin/synclient TouchpadOff=1 
+

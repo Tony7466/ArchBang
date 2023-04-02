@@ -1,13 +1,11 @@
 Notes for ArchBang iso image
  
-start winter release
+Spring rc release
 
-themes, conky, background
+# theme changes
+i3 x dark green...
+rofi 
+conky
+gtk3 [done]
 
-wallpaper and theme in logo folder.
 
-change conky to near black.
-
-vim added as I like it ;-)
-
-pv for copytoram not something I really want to ship with...

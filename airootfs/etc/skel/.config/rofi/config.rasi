@@ -4,7 +4,7 @@ configuration{
     show-icons: true;
     terminal: "lxterminal";
     drun-display-format: "{icon} {name}";
-    display-drun: " Select or Type: ";
+    display-drun: " Run: ";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
@@ -20,9 +20,9 @@ element-text, element-icon {
 * {
     dark-black: #100b05;
     bg-col:  #100b05;
-    border-col: #2f343f;
-    blue: #2f343f;
-	selected-col: #2f343f;
+    border-col: #1D462F;
+    blue: #1D462F;
+	selected-col: #1D462F;
 	fg-col: #FFFFFF;
     fg-col2: #FFFFFF;
     width: 600;

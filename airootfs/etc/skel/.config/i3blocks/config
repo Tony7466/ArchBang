@@ -1,0 +1,40 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+# 
+# borrowed code from EndeavourOS thanks Joe ;-)
+#
+# Modified for ArchBang by Mr Green [mrgreen@archbang]
+
+# Global properties
+separator=false
+separator_block_width=3
+
+[terminal]
+full_text= 
+color=#DBDBDB
+command=i3-msg -q exec lxterminal
+
+[browser]
+full_text= 
+color=#D7AB60
+command=i3-msg -q exec firefox
+
+[files]
+full_text= 
+color=#8EAEDD
+command=i3-msg -q exec thunar ~/
+
+# Blocklets...
+[time]
+#label=  
+command=date '+%a %d %b %H:%M '
+interval=1
+
+[shutdown_menu]
+full_text=
+command=~/AB_Scripts/exitmenu
+color=#008000

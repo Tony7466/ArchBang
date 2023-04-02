@@ -53,8 +53,26 @@ To disable blank screen after 10 minutes of inactivity, create a file in
 
 For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
-====Quick Tips====
+====Tips and tricks?====
 
 Desktop Keyboard Layout Live heck file ~/.config/i3/config -- edit line setxkbmap "us" (change us to your keyboard layout)
 
-No Super key [Windows Logo] on your keyboard then you can switch to Alt by using Alt+m. 
+No Super key [Windows Logo] on your keyboard then you can switch to Alt by using Alt+m.
+
+Want to change add autostart applications [Wallpaper, Volume icon, Battery monitor etc] that run on logging into i3 window manager
+
+Then look in ~/.config/i3/config find the Autostart section near end of file and make changes.
+
+Wallpaper is set in line:
+
+  exec $ei feh --bg-scale ~/Backgrounds/archbang.jpg
+
+Put your new wallpaper in ~/Backgrounds then edit the above line to your new wallpaper file name.
+
+
+
+
+
+
+
+

@@ -424,7 +424,7 @@ umount_partitions(){
 #}}}
 #SELECT DEVICE {{{
 select_device(){
-  devices_list=(`lsblk -d | awk '{print "/dev/" $1}' | grep 'nvme\|sd\|hd\|vd'`);
+  devices_list=(`lsblk -d | awk '{print "/dev/" $1}' | grep 'mmc\|nvme\|sd\|hd\|vd'`);
   PS3="$prompt1"
   echo -e "Select partition:\n"
   select device in "${devices_list[@]}"; do
@@ -891,12 +891,12 @@ configure_mkinitcpio(){
   print_title "MKINITCPIO - ${WIKI}/Mkinitcpio"
   print_info "mkinitcpio is a Bash script used to create an initial ramdisk environment."
   # This needs testing to see if ucode gets placed in /boot
+  cp /run/archiso/bootmnt/arch/boot/*-ucode.img ${MNT}/boot
+  cp -a /run/archiso/bootmnt/arch/boot/licenses ${MNT}/boot
   proc=$(grep -m1 vendor_id /proc/cpuinfo | awk '{print $3}')
   if [ "${proc}" = "GenuineIntel" ]; then
-    cp /run/archiso/bootmnt/arch/boot/intel-ucode.img ${MNT}/boot/
     cpu_id="intel"
   else
-    cp /run/archiso/bootmnt/arch/boot/amd-ucode.img ${MNT}/boot/
     cpu_id="amd"
   fi
   # sed would be an easier option....

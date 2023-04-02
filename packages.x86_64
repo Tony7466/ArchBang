@@ -28,8 +28,7 @@ alsa-oss
 
 # Window Manager Stuff
 i3-wm
-i3status
-#i3lock
+i3blocks
 rofi
 laptop-detect
 xdg-user-dirs
@@ -37,15 +36,16 @@ conky
 cbatticon
 lxterminal
 l3afpad
-vim
 gvfs
 lxappearance-gtk3
+lxsession-gtk3
 htop
+#picom
+vim
+awesome-terminal-fonts
 
 # Gtk, Icons, Theme
-lxsession-gtk3
-arc-icon-theme
-arc-solid-gtk-theme
+gnome-themes-extra
 
 # Media
 volumeicon
