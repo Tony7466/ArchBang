@@ -1,8 +1,0 @@
-# test hook for making changes to rootfs 
-
-[Action]
-Description = Run customize script....
-Depends = sh
-Exec = /usr/bin/sh -x /root/customize_airootfs.sh 
-
-

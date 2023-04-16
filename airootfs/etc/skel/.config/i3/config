@@ -20,9 +20,6 @@ set $mod Mod4
 # To stop timer icon when starting applications
 set $ei --no-startup-id
 
-# Set browser application
-set $browser firefox 
-
 # Font
 font pango:DejaVu Sans 9
 
@@ -197,8 +194,8 @@ bindsym $mod+Return exec $ei lxterminal
 bindsym Mod1+m exec $ei altmod
 
 # Browser and move to workspace 3
-bindsym $mod+w exec $ei $browser 
-assign [class=$browser] 3
+bindsym $mod+w exec $ei firefox https://archbang.org 
+assign [class="firefox"] 3
 
 # File Manager
 bindsym $mod+f exec $ei thunar 
@@ -235,7 +232,7 @@ exec $ei conky
 exec $ei cbatticon
 
 # Volume!
-exec $ei volumeicon
+#exec $ei pasystray 
 
 # Desktop Keymap layout.... 
 exec $ei setxkbmap -layout "us"  

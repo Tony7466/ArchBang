@@ -21,7 +21,8 @@ command=i3-msg -q exec lxterminal
 [browser]
 full_text= 
 color=#D7AB60
-command=i3-msg -q exec firefox
+command=i3-msg -q exec firefox https://archbang.org
+
 
 [files]
 full_text= 

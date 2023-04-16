@@ -22,9 +22,10 @@ ttf-dejavu
 xorg-xrdb
 
 # Sound
-alsa-firmware
-alsa-utils
-alsa-oss
+pipewire
+pavucontrol
+pipewire-pulse
+
 
 # Window Manager Stuff
 i3-wm
@@ -40,15 +41,11 @@ gvfs
 lxappearance-gtk3
 lxsession-gtk3
 htop
-#picom
 vim
 awesome-terminal-fonts
 
 # Gtk, Icons, Theme
 gnome-themes-extra
-
-# Media
-volumeicon
 
 # extra tools
 gparted
@@ -68,6 +65,8 @@ ncdu
 arch-install-scripts
 wget
 firefox
+#midori
+
 scrot
 pacman-contrib
 tlp
@@ -178,6 +177,7 @@ xfsprogs
 intel-ucode
 amd-ucode
 memtest86+
+memtest86+-efi
 mkinitcpio
 mkinitcpio-archiso
 mkinitcpio-nfs-utils
