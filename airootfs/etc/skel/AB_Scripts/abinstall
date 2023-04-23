@@ -22,7 +22,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #-------------------------------------------------------------------------------
-# Run this script after your first boot with ArchBang (as root)
 
 
 #GLOBAL VARIABLES {{{
@@ -772,9 +771,6 @@ install_archbang(){
   # set /home/ablive with user permissions
   arch_chroot "chown ablive:users /home/ablive -R &> /dev/null"
 
-  # set up kernel for mkiniticpio this needs to be tested...
-  cp /run/archiso/bootmnt/arch/boot/x86_64/vmlinuz-linux ${MNT}/boot/
-
   # put live driver into new install
   cp /etc/X11/xorg.conf.d/20-gpudriver.conf ${MNT}/etc/X11/xorg.conf.d/20-gpudriver.conf &>/dev/null
 
@@ -792,10 +788,6 @@ install_archbang(){
   # remove autologin from install
   rm -r ${MNT}/etc/systemd/system/getty@tty1.service.d &>/dev/null
 
-  # clean out archiso files from install remove package post install.
-  #find ${MNT}/usr/lib/initcpio -name archiso* -type f -exec rm '{}' \;
-  #rm -r ${MNT}/etc/initcpio
-  
   # systemd
   rm ${MNT}/etc/systemd/system/default.target &> /dev/null
   # add variable and then mv file to auto-storage.conf?
@@ -805,14 +797,6 @@ install_archbang(){
   # remove pacman-init.service and etc-gpg thing
   rm -f ${MNT}/etc/systemd/system/pacman-init.service
   rm -f ${MNT}/etc/systemd/system/etc-pacman.d-gnupg.mount
-  
-  # restore desktop files
-  #ipath="${MNT}/usr/share/applications"
-  #desk_file='avahi-discover bvnc bssh volumeicon gparted conky qv4l2 qvidcap' 
-  #for un in ${desk_file}
-  #do
-  #   mv ${path}/${un}.hide ${path}/${un}.desktop
-  #done
   
   # clean out ablive overlay files from /etc/skel on new install
   rm -r ${MNT}/etc/skel &>/dev/null
@@ -881,7 +865,7 @@ configure_locale(){
   done
   echo 'LANG="'$LOCALE_UTF8'"' > ${MNT}/etc/locale.conf
   #arch_chroot "echo ${LOCALE_UTF8} > /etc/locale.gen"
-  arch_chroot "sed -i '/en_GB\.UTF-8/ s/^#*/#/'  /etc/locale.gen"
+  arch_chroot "sed -i '/en_US\.UTF-8/ s/^#*/#/'  /etc/locale.gen"
   arch_chroot "sed -i '/'${LOCALE_UTF8}'/s/^#//' /etc/locale.gen"
   arch_chroot "locale-gen"
 }
@@ -890,17 +874,14 @@ configure_locale(){
 configure_mkinitcpio(){
   print_title "MKINITCPIO - ${WIKI}/Mkinitcpio"
   print_info "mkinitcpio is a Bash script used to create an initial ramdisk environment."
-  # This needs testing to see if ucode gets placed in /boot
-  cp /run/archiso/bootmnt/arch/boot/*-ucode.img ${MNT}/boot
-  cp -a /run/archiso/bootmnt/arch/boot/licenses ${MNT}/boot
   proc=$(grep -m1 vendor_id /proc/cpuinfo | awk '{print $3}')
   if [ "${proc}" = "GenuineIntel" ]; then
     cpu_id="intel"
   else
     cpu_id="amd"
   fi
-  # sed would be an easier option....
-  #mv "${MNT}/etc/mkinitcpio.d/linux.preset.ab" "${MNT}/etc/mkinitcpio.d/linux.preset"
+  # comment out xz to allow zstd to be used as compression
+  sed '/xz/s/^/#/' ${MNT}/mkinitcpio.conf
   # delete whole hooks line, replace with installed version
   sed -i '/^HOOKS/c\HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)' "${MNT}/etc/mkinitcpio.conf"
   
