@@ -762,9 +762,13 @@ install_archbang(){
   
   # copy source to new install
   AIROOTFS="/run/archiso/airootfs/"
-  NOF=$(find ${AIROOTFS} -type f | wc -l)
-  rsync -a --progress $AIROOTFS $MNT/ | pv -lep -s ${NOF} > /dev/null
 
+  # do we even need pv?
+  NOF=$(find ${AIROOTFS} -type f | wc -l)
+  
+  # wish to remove pv from this as I think it does not work
+  rsync -a --progress $AIROOTFS $MNT/ | pv -lep -s ${NOF} > /dev/null
+  
   # add mirrorlist or modify post install?
   cp /etc/pacman.d/mirrorlist $MNT/etc/pacman.d
 
@@ -778,7 +782,8 @@ install_archbang(){
   rm -f ${MNT}/home/ablive/AB_Scripts/{abinstall,altmod} &> /dev/null
   
   # remove installers from menu and conky
-  sed -i 's/abinstall//gi' ${MNT}/home/ablive/.config/i3/config
+  sed -i '/^#.*\<Abinstall\>/{N;d;}' ${MNT}/home/ablive/.config/i3/config
+  #sed -i 's/abinstall//gi' ${MNT}/home/ablive/.config/i3/config
   sed -i '/Installer/d' ${MNT}/home/ablive/.config/conky/conky.conf
   
   # remove altmod from conky and i3 config
@@ -881,7 +886,7 @@ configure_mkinitcpio(){
     cpu_id="amd"
   fi
   # comment out xz to allow zstd to be used as compression
-  sed '/xz/s/^/#/' ${MNT}/mkinitcpio.conf
+  sed '/xz/s/^/#/' ${MNT}/etc/mkinitcpio.conf
   # delete whole hooks line, replace with installed version
   sed -i '/^HOOKS/c\HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)' "${MNT}/etc/mkinitcpio.conf"
   

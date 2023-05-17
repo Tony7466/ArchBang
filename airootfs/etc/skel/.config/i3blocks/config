@@ -38,4 +38,4 @@ interval=1
 [shutdown_menu]
 full_text=
 command=~/AB_Scripts/exitmenu
-color=#008000
+color=#798A07
