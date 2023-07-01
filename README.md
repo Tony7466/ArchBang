@@ -1,6 +1,6 @@
 ## ArchBang Linux Live Iso
 
-THis is just an overview of source files in ArchBang and how to build your own iso image.
+This is just an overview of source files in ArchBang and how to build your own iso image.
 
 `git clone https://gitlab.com/mrgreen/archbang.git`
 

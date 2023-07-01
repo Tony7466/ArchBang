@@ -180,7 +180,9 @@ bindsym $mod+i exec $term -e "sudo /home/ablive/AB_Scripts/abinstall"
 bindsym $mod+b exec sway-binds
 
 # Take screenshots
-bindsym $mod+Shift+p exec grim /home/ablive/Pictures/$(date '+%y%m%d_%H-%M-%S').png
+bindsym --release Print exec grim /home/ablive/Pictures/$(date '+%y%m%d_%H-%M-%S').png
+# Select an area
+bindsym --release $mod+Print exec grim -g "$slurp" /home/ablive/Pictures/$(date '+%y%m%d_%H-%M-%S').png
 
 # swaylock
 #bindsym $mod+Shift+x exec # todo
