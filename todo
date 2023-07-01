@@ -1,17 +1,17 @@
 Notes for ArchBang iso image
  
-Spring rc release
-
-# theme changes
-i3 x dark green...
-rofi 
-conky
-gtk3 [done]
+Summer release
 
 check for gitignore...
 
+Start work on creating sway version
 
-added in extra workspaces
-reload and restart binds.... s+Shift+[s-r]
 
+add into config:
+
+screenshot! Print --release?
+
+idle [screenlocker]
+
+Go beta for now... 
 

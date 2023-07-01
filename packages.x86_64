@@ -15,12 +15,12 @@ thunar
 thunar-volman
 
 # Xorg
-xorg-server
-xorg-xinit
-xorg-xkill
-ttf-dejavu
-xorg-xrdb
-xorg-xrandr
+#xorg-server
+#xorg-xinit
+#xorg-xkill
+#ttf-dejavu
+#xorg-xrdb
+#xorg-xrandr
 
 # Sound
 pipewire
@@ -29,22 +29,34 @@ pipewire-pulse
 #pragha
 
 # Window Manager Stuff
-i3-wm
-i3blocks
-i3lock
-rofi
+sway
+swaybg
+waybar
+foot
+wofi
+grim
+swaylock
+awesome-terminal-fonts
+otf-font-awesome
+ttf-dejavu
+
+#i3-wm
+#i3blocks
+#i3lock
+#rofi
 laptop-detect
 xdg-user-dirs
-conky
-cbatticon
-lxterminal
+#conky
+#cbatticon
+#lxterminal
 l3afpad
 gvfs
-lxappearance-gtk3
+#lxappearance-gtk3
 lxsession-gtk3
 htop
 vim
-awesome-terminal-fonts
+#awesome-terminal-fonts
+#dmenu
 
 # Gtk, Icons, Theme
 gnome-themes-extra
@@ -55,11 +67,11 @@ expac
 testdisk
 
 # Xorg Extras
-fontconfig
-kbd
+#fontconfig
+#kbd
 
 # Extra Apps
-feh
+#feh
 at
 openssh
 pkgfile
@@ -82,7 +94,7 @@ polkit
 gnome-keyring
 wvdial
 networkmanager
-network-manager-applet
+#network-manager-applet
 broadcom-wl
 rp-pppoe
 iwd
@@ -113,18 +125,18 @@ syslinux
 efibootmgr
 
 # Video drivers
-xf86-input-evdev
-xf86-input-synaptics
-xf86-input-void
-xf86-video-ati
-xf86-video-dummy
-xf86-video-fbdev
-xf86-video-intel
-xf86-video-nouveau
-xf86-video-openchrome
-xf86-video-vesa
-xf86-video-voodoo
-xf86-video-amdgpu
+#xf86-input-evdev
+#xf86-input-synaptics
+#xf86-input-void
+#xf86-video-ati
+#xf86-video-dummy
+#xf86-video-fbdev
+#xf86-video-intel
+#xf86-video-nouveau
+#xf86-video-openchrome
+#xf86-video-vesa
+#xf86-video-voodoo
+#xf86-video-amdgpu
 
 
 # old base packages

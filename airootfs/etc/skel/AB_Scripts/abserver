@@ -20,11 +20,11 @@ sudo sed -i "s/#Server/Server/g" ${mirror}
 # create array of countries do I need an array?
 while IFS= read -r line
 do
-  [[ $line =~ ^##.* ]] && location+="${line//##}|"
+  [[ $line =~ ^##.* ]] && location+="${line//##}\n"
 done < "${mirror}"
 
 # Call rofi as dmenu 
-selection=$(echo "${location}" | rofi -dmenu -i -sep '|' -p "Select Country:")
+selection=$(echo -e "${location}" | wofi --dmenu -p "Select Country:")
 
 # Magic happens here create server list based on selection
 sudo sed -i -n -r "/${selection}/,/^\s*$/p" "${mirror}"

@@ -13,5 +13,5 @@ fi
 # load Xresources at login ... add bind to reload!
 [[ -f ~/.Xresources ]] && xrdb -merge -I $HOME ~/.Xresources
 
-exec i3 
+#exec i3 
 

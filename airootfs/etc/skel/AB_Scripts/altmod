@@ -5,10 +5,10 @@
 #
 
 # change i3 config to use alt
-sed -i 's/Mod4/Mod1/g' $HOME/.config/i3/config
+sed -i 's/Mod4/Mod1/g' $HOME/.config/sway/config
 
 # Update conky to reflect change
-sed -i 's/Super/Alt/g' $HOME/.config/conky/conky.conf
+#sed -i 's/Super/Alt/g' $HOME/.config/conky/conky.conf
 
-# update i3 config
-i3-msg reload
+# update sway config
+swaymsg reload

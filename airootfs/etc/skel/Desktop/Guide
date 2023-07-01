@@ -4,68 +4,91 @@ Information here is as up to date as possible.
 
 Please do not post issues or problems related to ArchBang on Archlinux forums it will result in at best your thread closed or worse deleted.
 
+
+====Sway Window Manager====
+
+Sway runs under Wayland and no longer depends on Xorg or X11 applications. Will give a brief overview of ArchBang version but more information can be found on Arch wiki [link]
+
+Some useful keybinds are:
+
+Super+t terminal
+Super+w Firefox browser
+Super+f Thunar file manager
+
+You will also see launchers on Waybar panel for above, as well as workspaces, networking, volume, cpu usage, ram usage, time and date, tray and power options. 
+
+Also applications can be started from Wofi [similar to Rofi/Dmenu] by using Super + d. If you want to open htop a terminal application use Shift key plus return.
+
+Window manager controls:
+
+Super+Shift+Space toggle window floating
+
+Super+Sapce switch between floating and tiled windows
+
+Super+[0-9] select workspace [1 -10]
+
+Super+Shift+[0-9] move selcted window to given workspace
+
+Super+q closes a window and the application in most cases, some gui apps will use there own keybinds.
+
+Super+[Arrow keys] move around workspace windows. adding shift will move windows around workspace.
+
+Super+Shift+c is important if you make any changes to sway it will reload all configs.
+
+Super+b opens Wofi with a full list of keybinds in Sway 
+
 ====Installation====
 
 To run installer either run sudo abinstall in a terminal of use Super + i keybinding
 
-If you wish to set up partitions before running installer either do so manually in a terminal or use gparted. Once complete then simply mount new partitions to /mnt. 
+If you wish to set up partitions before running installer either do so manually in a terminal or use gparted [note to work under wayland you will need to use sudo -E gparted].
+
+Once complete then simply mount new partitions to /mnt. 
 
 The installer is menu driven and very easy to follow.
 
 Another online guide https://itsfoss.com/install-archbang/
 
-=== Post Install ===
-
-Autologin is disabled in new install, you will end up at a log in prompt. Enter your chosen username and password to log in.
-
 ===Pacman===
 
-To get pacman running you will need a working network connection, either wired [connects automatically] or wireless [click icon on panel and find your named network].
+To get pacman running live you will need a working network connection, either wired [connects automatically] or wireless [open a terminal and run menu driven tmtui].
 
 Check/Setup mirrorlist you may have it already setup via installer [working network] or you can check it in a terminal by running abserver script.
 
-In a terminal [Super + t] run rthe folowing to update archlinux-keyring:
-
-    sudo pacman-key --init
-	sudo pacman-key --populate
-
-Then update pacman keyring and packages:
+Update pacman keyring and packages:
 
     sudo pacman -Syyu archlinux-keyring
 
-Then you can install a package of choice using:
+Then you can search for a package of choice using:
+
+	sudo pacman -Ss <package_name>
+
+Install a pacakge using
 
 	sudo pacman -S <package_name>
 
-====Disable Blank Screen After 10 Minutes====
 
-To disable blank screen after 10 minutes of inactivity, create a file in
-/etc/X11/xorg.conf.d called custom.conf with this code:
+Post install you can set up pacman as above but you will need to enable pacman-keys
 
- Section "ServerFlags"
- # disable low-level screensaver and screen DPMS poweroff
-    Option "BlankTime" "0"
-    Option "StandbyTime" "0"
-    Option "SuspendTime" "0"
-    Option "OffTime" "0"
- EndSection
+	sudo pacman-key --init
+	sudo pacman-key populate
 
 
 For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
 ====Tips and tricks?====
 
-Desktop Keyboard Layout Live heck file ~/.config/i3/config -- edit line setxkbmap "us" (change us to your keyboard layout)
+Desktop Keyboard Layout Live check file ~/.config/sway/config, edit line setxkbmap "us" (change us to your keyboard layout)
 
 No Super key [Windows Logo] on your keyboard then you can switch to Alt by using Alt+m.
 
-Want to change add autostart applications [Wallpaper, Volume icon, Battery monitor etc] that run on logging into i3 window manager
+Want to change add autostart applications that run on logging into sway window manager
 
-Then look in ~/.config/i3/config find the Autostart section near end of file and make changes.
+Then look in ~/.config/sway/config find the Autostart section near end of file and make changes.
 
 Wallpaper is set in line:
 
-  exec $ei feh --bg-scale ~/Backgrounds/archbang.jpg
+  output * bg /home/ablive/Backgrounds/<wallpaper>.jpg
 
 Put your new wallpaper in ~/Backgrounds then edit the above line to your new wallpaper file name.
 

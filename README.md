@@ -39,7 +39,7 @@ To build ArchBang stock iso install packages as above go into source directory a
 
 `sudo ./build.sh -v /<path_to_source>/archbang`
 
-Depending on youyr internet connecton and system it may take some time to build iso image.
+Depending on your internet connecton and system it may take some time to build iso image.
 
 Once complete go into 'out' folder and you should see iso image file.
 
