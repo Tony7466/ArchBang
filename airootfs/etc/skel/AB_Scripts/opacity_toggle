@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Define the environment variable or file to store the opacity state
+OPACITY_STATE_FILE="/tmp/window_opacity_state"
+
+# Create the file if it doesn't exist
+touch "$OPACITY_STATE_FILE"
+
+# Get the current opacity state from the file
+is_opaque=$(cat "$OPACITY_STATE_FILE")
+
+# Function to toggle the opacity of a window
+toggle_opacity() {
+    if [ "$is_opaque" = "true" ]; then
+        # Make the window opaque
+        swaymsg "opacity 1"
+    else
+        # Make the window transparent
+        swaymsg "opacity 0.7"
+    fi
+
+    # Update the opacity state in the file
+    is_opaque=$(cat "$OPACITY_STATE_FILE")
+    if [ "$is_opaque" = "true" ]; then
+        echo "false" > "$OPACITY_STATE_FILE"
+    else
+        echo "true" > "$OPACITY_STATE_FILE"
+    fi
+}
+
+# Call the toggle_opacity function directly
+toggle_opacity
+

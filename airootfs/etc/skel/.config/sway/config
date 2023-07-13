@@ -170,6 +170,9 @@ bindsym Mod1+Shift+m exec $term
 # File Manager
 bindsym $mod+f exec thunar
 
+# Change window Opacity
+bindsym $mod+o exec opacity_toggle
+
 # Editor
 bindsym $mod+e exec l3afpad
 
@@ -182,7 +185,7 @@ bindsym $mod+b exec sway-binds
 # Take screenshots
 bindsym --release Print exec grim /home/ablive/Pictures/$(date '+%y%m%d_%H-%M-%S').png
 # Select an area
-bindsym --release $mod+Print exec grim -g "$slurp" /home/ablive/Pictures/$(date '+%y%m%d_%H-%M-%S').png
+bindsym --release $mod+Print exec grim -g "$(slurp)" /home/ablive/Pictures/$(date '+%y%m%d_%H-%M-%S').png
 
 # swaylock
 #bindsym $mod+Shift+x exec # todo
