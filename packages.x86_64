@@ -13,34 +13,39 @@ pv
 udisks2
 thunar
 thunar-volman
+tumbler
 
+# Xorg
+xorg-server
+xorg-xinit
+xorg-xkill
+ttf-dejavu
+xorg-xrdb
+xorg-xrandr
 
 # Sound
 pipewire
 pavucontrol
 pipewire-pulse
+#pragha
 
 # Window Manager Stuff
-sway
-swaybg
-swayimg
-waybar
-foot
-wofi
-grim
-slurp
-swaylock
-awesome-terminal-fonts
-otf-font-awesome
-ttf-dejavu
-wl-clipboard
+i3-wm
+i3blocks
+i3lock
+rofi
 laptop-detect
 xdg-user-dirs
+conky
+cbatticon
+alacritty
 l3afpad
 gvfs
+lxappearance-gtk3
 lxsession-gtk3
 htop
-vim
+gvim
+awesome-terminal-fonts
 
 # Gtk, Icons, Theme
 gnome-themes-extra
@@ -50,8 +55,12 @@ gparted
 expac
 testdisk
 
+# Xorg Extras
+fontconfig
+kbd
 
 # Extra Apps
+feh
 at
 openssh
 pkgfile
@@ -74,9 +83,9 @@ polkit
 gnome-keyring
 wvdial
 networkmanager
+network-manager-applet
 broadcom-wl
 rp-pppoe
-iwd
 
 # Develop Tools
 dialog
@@ -102,6 +111,20 @@ os-prober
 lsb-release
 syslinux
 efibootmgr
+
+# Video drivers
+xf86-input-evdev
+xf86-input-synaptics
+xf86-input-void
+xf86-video-ati
+xf86-video-dummy
+xf86-video-fbdev
+xf86-video-intel
+xf86-video-nouveau
+xf86-video-openchrome
+xf86-video-vesa
+xf86-video-voodoo
+xf86-video-amdgpu
 
 
 # old base packages

@@ -1,6 +1,6 @@
 # Add nano as default editor
 export EDITOR=nano
-export TERMINAL=lxterminal
+export TERMINAL=alacritty
 export BROWSER=firefox
 
 # Add scripts path

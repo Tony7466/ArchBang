@@ -406,7 +406,7 @@ select_xkeymap(){
     read_input_text "Confirm keymap: $XKEYMAP"
   done
 # Desktop keymap
-  sed -i "s/\"us\"/\"${XKEYMAP}\"/g" $MNT/home/ablive/.config/sway/config
+  sed -i "s/\"us\"/\"${XKEYMAP}\"/g" $MNT/home/ablive/.config/i3/config
 # Global setting
   sed -i "s/us/${XKEYMAP}/g" $MNT/etc/X11/xorg.conf.d/01-keyboard-layout.conf
 }
@@ -782,13 +782,13 @@ install_archbang(){
   rm -f ${MNT}/home/ablive/AB_Scripts/{abinstall,altmod} &> /dev/null
   
   # remove installers from menu and conky
-  #sed -i '/^#.*\<Abinstall\>/{N;d;}' ${MNT}/home/ablive/.config/i3/config
+  sed -i '/^#.*\<Abinstall\>/{N;d;}' ${MNT}/home/ablive/.config/i3/config
   #sed -i 's/abinstall//gi' ${MNT}/home/ablive/.config/i3/config
-  #sed -i '/Installer/d' ${MNT}/home/ablive/.config/conky/conky.conf
+  sed -i '/Installer/d' ${MNT}/home/ablive/.config/conky/conky.conf
   
   # remove altmod from conky and i3 config
-  #sed -i '/bindsym Mod1/d' ${MNT}/home/ablive/.config/i3/config # case sensitive?
-  #sed -i '/Alt Switch/d' ${MNT}/home/ablive/.config/conky/conky.conf
+  sed -i '/bindsym Mod1/d' ${MNT}/home/ablive/.config/i3/config # case sensitive?
+  sed -i '/Alt Switch/d' ${MNT}/home/ablive/.config/conky/conky.conf
 
   # remove autologin from install
   rm -r ${MNT}/etc/systemd/system/getty@tty1.service.d &>/dev/null
@@ -886,7 +886,7 @@ configure_mkinitcpio(){
     cpu_id="amd"
   fi
   # comment out xz to allow zstd to be used as compression
-  sed -i '/xz/s/^/#/' ${MNT}/etc/mkinitcpio.conf
+  sed '/xz/s/^/#/' ${MNT}/etc/mkinitcpio.conf
   # delete whole hooks line, replace with installed version
   sed -i '/^HOOKS/c\HOOKS=(base udev autodetect modconf block filesystems keyboard fsck)' "${MNT}/etc/mkinitcpio.conf"
   

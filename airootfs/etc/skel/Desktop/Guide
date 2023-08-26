@@ -1,13 +1,13 @@
+
 Welcome to ArchBang Live a live iso [www.archbang.org/Guide].
 
 Information here is as up to date as possible.
 
 Please do not post issues or problems related to ArchBang on Archlinux forums it will result in at best your thread closed or worse deleted.
 
+====i3 Window Manager====
 
-====Sway Window Manager====
-
-Sway runs under Wayland and no longer depends on Xorg or X11 applications. Will give a brief overview of ArchBang version but more information can be found on Arch wiki [link]
+Will give a brief overview of ArchBang version.
 
 Some useful keybinds are:
 
@@ -15,9 +15,9 @@ Super+t terminal
 Super+w Firefox browser
 Super+f Thunar file manager
 
-You will also see launchers on Waybar panel for above, as well as workspaces, networking, volume, cpu usage, ram usage, time and date, tray and power options. 
+You will also see launchers on panel for above, as well as workspaces, networking, volume, cpu usage, ram usage, time and date, tray and power options.
 
-Also applications can be started from Wofi [similar to Rofi/Dmenu] by using Super + d. If you want to open htop a terminal application use Shift key plus return.
+Also applications can be started from Rofi by using Super + d. If you want to open htop a terminal application use Shift key plus return.
 
 Window manager controls:
 
@@ -33,9 +33,9 @@ Super+q closes a window and the application in most cases, some gui apps will us
 
 Super+[Arrow keys] move around workspace windows. adding shift will move windows around workspace.
 
-Super+Shift+c is important if you make any changes to sway it will reload all configs.
+Super+Shift+r is important if you make any changes to i3 it will reload all configs.
 
-Super+b opens Wofi with a full list of keybinds in Sway 
+Super+b opens Rofi with a full list of keybinds in i3
 
 ====Installation====
 
@@ -43,7 +43,7 @@ To run installer either run sudo abinstall in a terminal of use Super + i keybin
 
 If you wish to set up partitions before running installer either do so manually in a terminal or use gparted [note to work under wayland you will need to use sudo -E gparted].
 
-Once complete then simply mount new partitions to /mnt. 
+Once complete then simply mount new partitions to /mnt.
 
 The installer is menu driven and very easy to follow.
 
@@ -57,45 +57,38 @@ Check/Setup mirrorlist you may have it already setup via installer [working netw
 
 Update pacman keyring and packages:
 
-    sudo pacman -Syyu archlinux-keyring
+sudo pacman -Syyu archlinux-keyring
 
 Then you can search for a package of choice using:
 
-	sudo pacman -Ss <package_name>
+sudo pacman -Ss
 
 Install a pacakge using
 
-	sudo pacman -S <package_name>
-
+sudo pacman -S
 
 Post install you can set up pacman as above but you will need to enable pacman-keys
 
-	sudo pacman-key --init
-	sudo pacman-key populate
-
+sudo pacman-key –init
+sudo pacman-key populate
 
 For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
 ====Tips and tricks?====
 
-Desktop Keyboard Layout Live check file ~/.config/sway/config, edit line setxkbmap "us" (change us to your keyboard layout)
+Desktop Keyboard Layout Live check file ~/.config/i3/config, edit line setxkbmap “us” (change us to your keyboard layout)
 
 No Super key [Windows Logo] on your keyboard then you can switch to Alt by using Alt+m.
 
-Want to change add autostart applications that run on logging into sway window manager
+Want to change add autostart applications that run on logging into i3 window manager
 
-Then look in ~/.config/sway/config find the Autostart section near end of file and make changes.
+Then look in ~/.config/i3/config find the Autostart section near end of file and make changes.
 
 Wallpaper is set in line:
 
-  output * bg /home/ablive/Backgrounds/<wallpaper>.jpg
+exec_always $ei feh –bg-scale ~/Backgrounds/graveyard.jpg
 
 Put your new wallpaper in ~/Backgrounds then edit the above line to your new wallpaper file name.
 
-
-
-
-
-
-
+© 2023 ArchBang Live Iso
 
