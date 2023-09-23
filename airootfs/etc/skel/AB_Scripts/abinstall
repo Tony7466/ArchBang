@@ -406,7 +406,8 @@ select_xkeymap(){
     read_input_text "Confirm keymap: $XKEYMAP"
   done
 # Desktop keymap
-  sed -i "s/\"us\"/\"${XKEYMAP}\"/g" $MNT/home/ablive/.config/i3/config
+# change in openbox/autostart... modify
+  sed -i "s/\"us\"/\"${XKEYMAP}\"/g" $MNT/home/ablive/.config/openbox/autostart
 # Global setting
   sed -i "s/us/${XKEYMAP}/g" $MNT/etc/X11/xorg.conf.d/01-keyboard-layout.conf
 }
@@ -766,6 +767,10 @@ install_archbang(){
   # do we even need pv?
   NOF=$(find ${AIROOTFS} -type f | wc -l)
   
+
+  # try archiso method $AIROOTFS $MNT 
+  # echo ""
+  # (pv "${AIROOTFS}" >"${MNT}" ) 
   # wish to remove pv from this as I think it does not work
   rsync -a --progress $AIROOTFS $MNT/ | pv -lep -s ${NOF} > /dev/null
   
@@ -779,16 +784,10 @@ install_archbang(){
   cp /etc/X11/xorg.conf.d/20-gpudriver.conf ${MNT}/etc/X11/xorg.conf.d/20-gpudriver.conf &>/dev/null
 
   # Clean up new install scripts and configs
-  rm -f ${MNT}/home/ablive/AB_Scripts/{abinstall,altmod} &> /dev/null
-  
-  # remove installers from menu and conky
-  sed -i '/^#.*\<Abinstall\>/{N;d;}' ${MNT}/home/ablive/.config/i3/config
-  #sed -i 's/abinstall//gi' ${MNT}/home/ablive/.config/i3/config
-  sed -i '/Installer/d' ${MNT}/home/ablive/.config/conky/conky.conf
-  
-  # remove altmod from conky and i3 config
-  sed -i '/bindsym Mod1/d' ${MNT}/home/ablive/.config/i3/config # case sensitive?
-  sed -i '/Alt Switch/d' ${MNT}/home/ablive/.config/conky/conky.conf
+  rm -f ${MNT}/home/ablive/AB_Scripts/{abinstal} &> /dev/null
+ 
+  # Remove installer from root-menu   
+  sed -i '/<!-- abinstall 5 -->/,+5d' ${MNT}/home/ablive/.config/openbox/menu.xml
 
   # remove autologin from install
   rm -r ${MNT}/etc/systemd/system/getty@tty1.service.d &>/dev/null

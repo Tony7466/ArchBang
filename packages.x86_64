@@ -30,9 +30,10 @@ pipewire-pulse
 #pragha
 
 # Window Manager Stuff
-i3-wm
-i3blocks
-i3lock
+openbox
+obconf
+tint2
+archlinux-xdg-menu
 rofi
 laptop-detect
 xdg-user-dirs
@@ -41,6 +42,7 @@ cbatticon
 alacritty
 l3afpad
 gvfs
+gsimplecal
 lxappearance-gtk3
 lxsession-gtk3
 htop

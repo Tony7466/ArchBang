@@ -4,7 +4,7 @@ configuration{
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
-    display-drun: " Run: ";
+    display-drun: " Applications: ";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
@@ -20,9 +20,9 @@ element-text, element-icon {
 * {
     dark-black: #100b05;
     bg-col:  #100b05;
-    border-col: #5f8707;
-    blue: #5f8707;
-	selected-col: #5f8707;
+    border-col: #A19436;
+    blue: #A19436;
+	selected-col: #A19436;
 	fg-col: #FFFFFF;
     fg-col2: #FFFFFF;
     width: 600;

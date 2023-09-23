@@ -5,7 +5,7 @@ Information here is as up to date as possible.
 
 Please do not post issues or problems related to ArchBang on Archlinux forums it will result in at best your thread closed or worse deleted.
 
-====i3 Window Manager====
+====Openbox Window Manager====
 
 Will give a brief overview of ArchBang version.
 
@@ -15,31 +15,23 @@ Super+t terminal
 Super+w Firefox browser
 Super+f Thunar file manager
 
-You will also see launchers on panel for above, as well as workspaces, networking, volume, cpu usage, ram usage, time and date, tray and power options.
+You will also see launchers on panel for above, as well as workspaces, networking, system tray and clock.
 
-Also applications can be started from Rofi by using Super + d. If you want to open htop a terminal application use Shift key plus return.
+Also applications can be started from Rofi by using Super + r. If you want to open htop a terminal application use Shift key plus return.
 
 Window manager controls:
 
-Super+Shift+Space toggle window floating
+Most window actions can be done with mouse.
 
-Super+Sapce switch between floating and tiled windows
+Right Click for main menu.
 
-Super+[0-9] select workspace [1 -10]
+Click and drag windows around desktop.
 
-Super+Shift+[0-9] move selcted window to given workspace
-
-Super+q closes a window and the application in most cases, some gui apps will use there own keybinds.
-
-Super+[Arrow keys] move around workspace windows. adding shift will move windows around workspace.
-
-Super+Shift+r is important if you make any changes to i3 it will reload all configs.
-
-Super+b opens Rofi with a full list of keybinds in i3
+Added a small number of binds some are shown in conky on desktop.
 
 ====Installation====
 
-To run installer either run sudo abinstall in a terminal of use Super + i keybinding
+To run installer either run sudo abinstall in a terminal or via main menu.
 
 If you wish to set up partitions before running installer either do so manually in a terminal or use gparted [note to work under wayland you will need to use sudo -E gparted].
 
@@ -76,17 +68,15 @@ For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
 ====Tips and tricks?====
 
-Desktop Keyboard Layout Live check file ~/.config/i3/config, edit line setxkbmap “us” (change us to your keyboard layout)
+Desktop Keyboard Layout Live check file ~/.config/openbox/autostart, edit line setxkbmap “us” (change us to your keyboard layout)
 
-No Super key [Windows Logo] on your keyboard then you can switch to Alt by using Alt+m.
+Want to change or add autostart applications that run on logging into Openbox window manager
 
-Want to change add autostart applications that run on logging into i3 window manager
+Then look in ~/.config/openbox/autostart file and make changes, make sure you add a '&' to end of line so application will run in the background.
 
-Then look in ~/.config/i3/config find the Autostart section near end of file and make changes.
+Also in that file is where wallpaper is set:
 
-Wallpaper is set in line:
-
-exec_always $ei feh –bg-scale ~/Backgrounds/graveyard.jpg
+feh –bg-scale ~/Backgrounds/graveyard.jpg
 
 Put your new wallpaper in ~/Backgrounds then edit the above line to your new wallpaper file name.
 
