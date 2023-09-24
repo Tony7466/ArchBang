@@ -772,6 +772,8 @@ install_archbang(){
   # echo ""
   # (pv "${AIROOTFS}" >"${MNT}" ) 
   # wish to remove pv from this as I think it does not work
+  # tar cf - -C /path/to/source . | pv -s $(du -sb /path/to/source | awk '{print $1}') | tar xf - -C /path/to/destination
+
   rsync -a --progress $AIROOTFS $MNT/ | pv -lep -s ${NOF} > /dev/null
   
   # add mirrorlist or modify post install?

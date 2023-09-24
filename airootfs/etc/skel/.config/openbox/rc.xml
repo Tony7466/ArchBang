@@ -65,18 +65,18 @@
   <animateIconify>yes</animateIconify>
   <font place="ActiveWindow">
     <name>sans</name>
-    <size>8</size>
+    <size>9</size>
     <!-- font size in points -->
-    <weight>bold</weight>
+    <weight>normal</weight>
     <!-- 'bold' or 'normal' -->
     <slant>normal</slant>
     <!-- 'italic' or 'normal' -->
   </font>
   <font place="InactiveWindow">
     <name>sans</name>
-    <size>8</size>
+    <size>9</size>
     <!-- font size in points -->
-    <weight>bold</weight>
+    <weight>normal</weight>
     <!-- 'bold' or 'normal' -->
     <slant>normal</slant>
     <!-- 'italic' or 'normal' -->
@@ -134,7 +134,7 @@
     <name>1</name>
     <name>2</name>
 	<name>3</name>
-    <name>4</name>
+	<name>4</name>
   </names>
   <popupTime>875</popupTime>
   <!-- The number of milliseconds to show the popup for when switching
@@ -298,42 +298,84 @@
     </action>
   </keybind>
 
-  <!-- Keybindings for running applications -->
+  <!-- Snap using Super + Arrow keys -->
+  <keybind key="W-Left">
+    <action name="Unmaximize" />
+    <action name="MoveResizeTo">
+      <x>0</x>
+      <y>0</y>
+      <width>50%</width>
+      <height>100%</height>
+    </action>
+  </keybind>
+
+  <keybind key="W-Right">
+    <action name="Unmaximize" />
+    <action name="MoveResizeTo">
+      <x>-0</x>
+      <y>0</y>
+      <width>50%</width>
+      <height>100%</height>
+    </action>
+  </keybind>
+
+  <keybind key="W-Up">
+    <action name="Unmaximize" />
+    <action name="MoveResizeTo">
+      <x>0</x>
+      <y>0</y>
+      <width>100%</width>
+      <height>50%</height>
+    </action>
+  </keybind>
+
+  <keybind key="W-Down">
+    <action name="Unmaximize" />
+    <action name="MoveResizeTo">
+      <x>0</x>
+      <y>-0</y>
+      <width>100%</width>
+      <height>50%</height>
+    </action>
+  </keybind>
+
+  <!-- Keybindings for running applications in ArchBang -->
   <keybind key="W-t">
     <action name="Execute">
       <command>alacritty</command>
     </action>
-  </keybind>
- <keybind key="W-w">
+	</keybind>
+   <keybind key="W-w">
     <action name="Execute">
-      <startupnotify>
-        <enabled>true</enabled>
-        <name>browser</name>
-      </startupnotify>
       <command>firefox</command>
     </action>
   </keybind>
-   <keybind key="W-g">
-    <action name="Execute">
-      <command>l3afpad /home/ablive/Desktop/Guide</command>
-    </action>
-  </keybind>
- <keybind key="W-f">
+   <keybind key="W-f">
     <action name="Execute">
       <command>thunar</command>
     </action>
   </keybind>
-  <keybind key="W-r">
+ <keybind key="W-r">
     <action name="Execute">
       <command>rofi -show drun</command>
     </action>
-  </keybind>
-<keybind key="W-e">
+	</keybind>
+ <keybind key="W-g">
+    <action name="Execute">
+      <command>l3afpad /home/ablive/Desktop/Guide</command>
+    </action>
+	</keybind>
+ <keybind key="W-e">
     <action name="Execute">
       <command>l3afpad</command>
     </action>
+	</keybind>
+  <keybind key="W-m">
+    <action name="ToggleMaximize"/>
   </keybind>
-
+  <keybind key="W-q">
+    <action name="Close"/>
+  </keybind>
 </keyboard>
 
 <mouse>

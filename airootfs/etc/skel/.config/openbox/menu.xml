@@ -11,7 +11,7 @@
 </item>
 <item label="Browser">
    <action name="Execute">
-      <command>firefox</command>
+      <command>firefox https://archbang.org</command>
    </action>
 </item>
 <item label="File Manager">

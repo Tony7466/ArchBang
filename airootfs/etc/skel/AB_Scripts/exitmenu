@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Define options
+options="Log out\nReboot\nShutdown"
+
+# Use rofi to display options and get user selection
+selected=$(echo -e $options | rofi -dmenu -p "Options:")
+
+# Act upon selection
+case $selected in
+    Shutdown)
+        systemctl poweroff
+        ;;
+    Reboot)
+        systemctl reboot
+        ;;
+    Log\ out)
+        openbox --exit
+        ;;
+    *)
+        exit
+		;;
+esac
+

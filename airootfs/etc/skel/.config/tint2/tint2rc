@@ -71,7 +71,7 @@ border_color_pressed = #000000 0
 
 #-------------------------------------
 # Panel
-panel_items = TPPPSC
+panel_items = TPPPSCP
 panel_size = 100% 28
 panel_margin = 0 0
 panel_padding = 0 0 0
@@ -166,7 +166,7 @@ launcher_item_app = app.desktop
 
 #-------------------------------------
 # Clock
-time1_format = %a %d  %H:%M
+time1_format = %H:%M
 time2_format = 
 time1_font = Noto Sans 9
 time1_timezone = 
@@ -226,7 +226,7 @@ button = new
 button_text = 
 button_tooltip = Terminal 
 button_font = Awesome 12
-button_font_color = #ffffff 100
+button_font_color = #6C7631 100
 button_background_id = 1
 button_centred = 1
 button_padding = 5 5 
@@ -237,7 +237,7 @@ button = new
 button_text = 
 button_tooltip = Browser
 button_font = Awesome 12
-button_font_color = #ffffff 100
+button_font_color = #A19436 100
 button_background_id = 1
 button_centred = 1
 button_padding = 2 2 
@@ -248,10 +248,20 @@ button = new
 button_text = 
 button_tooltip = File Manager
 button_font = Awesome 12
-button_font_color = #ffffff 100
+button_font_color = #6C7631 100
 button_background_id = 1
 button_centred = 1
 button_padding = 5 5 
 button_lclick_command = thunar
 
+# Button
+button = new
+button_text =  
+button_tooltip = Exit Menu
+button_font = Awesome 12
+button_font_color = #5F8707 100
+button_background_id = 1
+button_centred = 1
+button_padding = 5 5 
+button_lclick_command = exitmenu
 
