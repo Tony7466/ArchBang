@@ -23,7 +23,7 @@ Window manager controls:
 
 Most window actions can be done with mouse.
 
-Right Click for main menu.
+Right Click on desktop for main menu.
 
 Click and drag windows around desktop.
 
@@ -33,7 +33,7 @@ Added a small number of binds some are shown in conky on desktop.
 
 To run installer either run sudo abinstall in a terminal or via main menu.
 
-If you wish to set up partitions before running installer either do so manually in a terminal or use gparted [note to work under wayland you will need to use sudo -E gparted].
+If you wish to set up partitions before running installer either do so manually in a terminal or use gparted.
 
 Once complete then simply mount new partitions to /mnt.
 
@@ -43,7 +43,12 @@ Another online guide https://itsfoss.com/install-archbang/
 
 ===Pacman===
 
-To get pacman running live you will need a working network connection, either wired [connects automatically] or wireless [open a terminal and run menu driven tmtui].
+To get pacman running live you will need a working network connection, either wired [connects automatically] or wireless via network icon on panel [click on it!].
+
+Live you do not need to do the following commands but post install you will need to set up pacman keys:
+
+sudo pacman-key --init
+sudo pamcan-key --populate
 
 Check/Setup mirrorlist you may have it already setup via installer [working network] or you can check it in a terminal by running abserver script.
 
@@ -59,10 +64,6 @@ Install a pacakge using
 
 sudo pacman -S
 
-Post install you can set up pacman as above but you will need to enable pacman-keys
-
-sudo pacman-key –init
-sudo pacman-key populate
 
 For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 

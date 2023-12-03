@@ -49,8 +49,8 @@
 </placement>
 
 <theme>
-  <name>AB_Green</name>
-  <titleLayout>NLIMC</titleLayout>
+  <name>AB_Winter</name>
+  <titleLayout>LIMC</titleLayout>
   <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -345,6 +345,11 @@
       <command>alacritty</command>
     </action>
 	</keybind>
+	<keybind key="W-Return">
+    <action name="Execute">
+      <command>alacritty</command>
+    </action>
+	</keybind>
    <keybind key="W-w">
     <action name="Execute">
       <command>firefox</command>
@@ -373,7 +378,10 @@
   <keybind key="W-m">
     <action name="ToggleMaximize"/>
   </keybind>
-  <keybind key="W-q">
+   <keybind key="W-space">
+	<action name="ShowMenu"><menu>root-menu</menu></action>
+  </keybind>
+<keybind key="W-q">
     <action name="Close"/>
   </keybind>
 </keyboard>

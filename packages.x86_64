@@ -48,9 +48,11 @@ lxsession-gtk3
 htop
 gvim
 awesome-terminal-fonts
+neofetch
 
 # Gtk, Icons, Theme
 gnome-themes-extra
+arc-icon-theme
 
 # extra tools
 gparted

@@ -56,7 +56,7 @@
     </action>
   </item>
 </menu>
-  
+
 <menu id="exit_menu" label="Exit">
  <item label="Log Out">
     <action name="Exit">
@@ -74,7 +74,6 @@
     </action>
  </item>
 
-</menu>
-  
+</menu>    
 </openbox_menu>
 

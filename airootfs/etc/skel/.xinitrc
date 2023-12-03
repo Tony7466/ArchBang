@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 systemctl --user import-environment DISPLAY
 
 # Dbus fix
