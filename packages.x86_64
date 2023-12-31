@@ -27,7 +27,7 @@ xorg-xrandr
 pipewire
 pavucontrol
 pipewire-pulse
-#pragha
+pragha
 
 # Window Manager Stuff
 openbox
@@ -52,7 +52,7 @@ neofetch
 
 # Gtk, Icons, Theme
 gnome-themes-extra
-arc-icon-theme
+#arc-icon-theme
 
 # extra tools
 gparted
@@ -72,8 +72,7 @@ ncdu
 arch-install-scripts
 wget
 firefox
-#midori
-
+#netsurf
 scrot
 pacman-contrib
 tlp
