@@ -76,7 +76,7 @@ mods = "Control"
 
 [[keyboard.bindings]]
 action = "Copy"
-key = "C"
+key = "G"
 mods = "Control"
 
 [[keyboard.bindings]]
