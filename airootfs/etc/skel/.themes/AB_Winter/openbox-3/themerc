@@ -4,7 +4,7 @@
 
 # Menu settings
 menu.title.bg: Raised Vertical
-menu.title.bg.color: #5E81AC
+menu.title.bg.color: #8E9E9E
 menu.title.text.color: #000000
 menu.title.text.justify: Center
 
@@ -14,13 +14,13 @@ menu.items.text.color: #ffffff
 menu.items.disabled.text.color: #ffffff
 
 menu.items.active.bg: Flat Vertical
-menu.items.active.bg.color: #5E81AC
+menu.items.active.bg.color: #8E9E9E
 menu.items.active.text.color: #000000
 
 
 # Window settings (focused)
 window.active.title.bg: Raised Vertical
-window.active.title.bg.color: #5E81AC
+window.active.title.bg.color: #8E9E9E
 
 window.active.label.bg: Parentrelative
 window.active.label.text.color: #FFFFFF

@@ -64,6 +64,16 @@ Install a pacakge using
 
 sudo pacman -S
 
+===Aur===
+
+If you need a package from Arch User Repository that is not in normal repos use yay_install script.
+
+This will check for a network connection, update keyring package and keys then install base-devel and finally build and install yay aur helper.
+
+If you wish to use another aur helper then change script to suit. 
+
+Please note packages in AUR are used at your own risk!
+
 
 For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 

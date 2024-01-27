@@ -76,7 +76,7 @@ mods = "Control"
 
 [[keyboard.bindings]]
 action = "Copy"
-key = "G"
+key = "C"
 mods = "Control"
 
 [[keyboard.bindings]]
@@ -142,7 +142,7 @@ program = "/usr/bin/bash"
 [window]
 decorations = "full"
 dynamic_title = false
-title = "ArchBang Rules...."
+#title = "ArchBang Terminal..."
 
 [window.padding]
 x = 10

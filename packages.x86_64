@@ -27,7 +27,7 @@ xorg-xrandr
 pipewire
 pavucontrol
 pipewire-pulse
-pragha
+#pragha
 
 # Window Manager Stuff
 openbox
