@@ -8,8 +8,11 @@ shopt -s extglob
 sed -i 's/#\(en_US\.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 
-# Allow Parallel Downloads
+# Allow Parallel Downloads in pacman
 sed -i "s/^#Parallel/Parallel/g" /etc/pacman.conf 
+
+# Un-comment mirrorlist to allow pacman to work live....
+sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 
 # Sudo to allow no password
 sed -i 's/# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
@@ -34,7 +37,7 @@ hwclock --systohc --utc
 ln -sf /usr/share/zoneinfo/Canada/Montreal /etc/localtime
 
 # Add live user
-useradd -m -p "" -g users -G "wheel" -s /bin/bash ablive
+useradd -m -p "" -G "wheel" -s /bin/bash ablive
 chown ablive /home/ablive
 
 

@@ -19,7 +19,6 @@ if [ -e /home/ablive ];then
   IFS='
 '
   echo "Modified files :"
-  #for i in $(find /home/$usr1/.??* -type f);do grep "home/$usr1" $i >/dev/null && sed -i "s|home/$usr1|home/$usr2|g" $i && echo $i;done
   find /home/$usr1 -type f -exec sed -i "s/ablive/$usr2/g" {} +
   echo "Modification of the config files finished !"
   sleep 1
@@ -30,7 +29,8 @@ if [ -e /home/ablive ];then
   sed -i "s/$usr1/$usr2/"  /etc/shadow
   # switch user 'ablive' to new username
   mv /home/$usr1 /home/$usr2 &> /dev/null
-  chown -R $usr2:users /home/$usr2
+  # change owner to new user
+  chown -R $usr2:$usr2 /home/$usr2
   chgrp $usr2 /home/$usr2 &> /dev/null
 else
   echo "The user has already been renamed !"

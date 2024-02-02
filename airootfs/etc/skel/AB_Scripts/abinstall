@@ -290,55 +290,6 @@
   }
   #}}}
 
-  getmirror() {
-  declare -a location
-  input="${mirror}"
-  while IFS= read -r line
-  do
-   # do stuff
-   [[ $line =~ ^##.* ]] && location+=("${line//##}")
-
-  done < "$input"
-
-  PS3="(shift+pgup/pgdown) $prompt1"
-  echo "Select location:"
-  select LOCATION in "${location[@]}"; do
-  if contains_element "$LOCATION" "${location[@]}"; then
-        break
-      else
-        invalid_option
-      fi
-  done
-  }
-
-  configure_mirror() {
-  # Create a mirrorlist based on location, may not be fastest servers but nearest..
-  mirror="${MNT}/etc/pacman.d/mirrorlist"
-  # Backup list
-  cp ${mirror} ${MNT}/etc/pacman.d/mirrorlist.backup
-
-  # Calculate number of lines until first country servers
-  LINES=$(expr $(sed -n '0,/Argentina/p' ${mirror} | wc -l) - 1)
-
-  # delete LINES from mirrorlist.
-  sed -i "1,${LINES}d" ${mirror}
-
-  # Uncomment Server List
-  sed -i "s/#Server/Server/g" ${mirror}
-
-  OPTION=n
-  while [[ $OPTION != y ]]; do
-    getmirror
-    echo ""
-    read_input_text "Confirm Location: $LOCATION"
-  done
-
-  # magic happens here....
-  sed -i -n -r "/${LOCATION}/,/^\s*$/p" ${mirror}
-  }
-
-
-
  getxkeymap() { #{{{
     local _xkeymaps=($(localectl list-x11-keymap-layouts))
     PS3="(shift+pgup/pgdown) $prompt1"
@@ -763,30 +714,17 @@ install_archbang(){
   
   # copy source to new install
   AIROOTFS="/run/archiso/airootfs/"
-
-  # do we even need pv?
   NOF=$(find ${AIROOTFS} -type f | wc -l)
-  
-
-  # try archiso method $AIROOTFS $MNT 
-  # echo ""
-  # (pv "${AIROOTFS}" >"${MNT}" ) 
-  # wish to remove pv from this as I think it does not work
-  # tar cf - -C /path/to/source . | pv -s $(du -sb /path/to/source | awk '{print $1}') | tar xf - -C /path/to/destination
-
   rsync -a --progress $AIROOTFS $MNT/ | pv -lep -s ${NOF} > /dev/null
   
   # add mirrorlist or modify post install?
   cp /etc/pacman.d/mirrorlist $MNT/etc/pacman.d
 
-  # set /home/ablive with user permissions
-  arch_chroot "chown ablive:users /home/ablive -R &> /dev/null"
-
   # put live driver into new install
   cp /etc/X11/xorg.conf.d/20-gpudriver.conf ${MNT}/etc/X11/xorg.conf.d/20-gpudriver.conf &>/dev/null
 
-  # Clean up new install scripts and configs
-  rm -f ${MNT}/home/ablive/AB_Scripts/{abinstal} &> /dev/null
+  # Remove abinstall from target device
+  rm -f ${MNT}/home/ablive/AB_Scripts/abinstall &> /dev/null
  
   # Remove installer from root-menu   
   sed -i '/<!-- abinstall 5 -->/,+5d' ${MNT}/home/ablive/.config/openbox/menu.xml
@@ -800,8 +738,10 @@ install_archbang(){
   sed -i 's/volatile/auto/g' /${MNT}/etc/systemd/journald.conf.d/volatile-storage.conf
   mv /${MNT}/etc/systemd/journald.conf.d/volatile-storage.conf /${MNT}/etc/systemd/journald.conf.d/auto-storage.conf
   
-  # remove pacman-init.service and etc-gpg thing
+  # remove pacman-init.service link and etc-gpg thing
+  unlink ${MNT}/etc/systemd/system/multi-user.target.wants/pacman-init.service
   rm -f ${MNT}/etc/systemd/system/pacman-init.service
+
   rm -f ${MNT}/etc/systemd/system/etc-pacman.d-gnupg.mount
   
   # clean out ablive overlay files from /etc/skel on new install
@@ -1119,7 +1059,6 @@ do
         ;;
       4)
         configure_timezone
-		configure_mirror
         checklist[4]=1
         ;;
       5)

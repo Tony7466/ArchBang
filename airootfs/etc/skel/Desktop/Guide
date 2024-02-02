@@ -45,16 +45,11 @@ Another online guide https://itsfoss.com/install-archbang/
 
 To get pacman running live you will need a working network connection, either wired [connects automatically] or wireless via network icon on panel [click on it!].
 
-Live you do not need to do the following commands but post install you will need to set up pacman keys:
+Live you do not need to do the following commands but post install you will need to set up pacman keys open a terminal and run:
 
-sudo pacman-key --init
-sudo pamcan-key --populate
+packey
 
-Check/Setup mirrorlist you may have it already setup via installer [working network] or you can check it in a terminal by running abserver script.
-
-Update pacman keyring and packages:
-
-sudo pacman -Syyu archlinux-keyring
+This will create keys, refresh package cache and install archlinux-keyring.
 
 Then you can search for a package of choice using:
 
@@ -64,20 +59,14 @@ Install a pacakge using
 
 sudo pacman -S
 
-===Aur===
-
-If you need a package from Arch User Repository that is not in normal repos use yay_install script.
-
-This will check for a network connection, update keyring package and keys then install base-devel and finally build and install yay aur helper.
-
-If you wish to use another aur helper then change script to suit. 
-
-Please note packages in AUR are used at your own risk!
-
 
 For more help, guides search the Arch Wiki [https://wiki.archlinux.org/]
 
 ====Tips and tricks?====
+
+By default pacman mirrorlist is un-commented to allow it to work live, read Arch wiki guide on mirrors and setting them up here:
+
+https://wiki.archlinux.org/title/Mirrors
 
 Desktop Keyboard Layout Live check file ~/.config/openbox/autostart, edit line setxkbmap “us” (change us to your keyboard layout)
 
@@ -91,5 +80,5 @@ feh –bg-scale ~/Backgrounds/graveyard.jpg
 
 Put your new wallpaper in ~/Backgrounds then edit the above line to your new wallpaper file name.
 
-© 2023 ArchBang Live Iso
+© 2024 ArchBang Live Iso
 

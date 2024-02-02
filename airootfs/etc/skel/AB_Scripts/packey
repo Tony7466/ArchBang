@@ -1,0 +1,13 @@
+#!/bin/bash
+# Set up pacman-keys on new install
+# update pacman repos and load archlinux-keyring
+# 
+# by Mr Green [mrgreen@archbang.org]
+
+echo "Creating keys for Pacman..."
+sudo pacman-key --init
+sudo pacman-key --populate
+echo "Updating Pacman..."
+sudo pacman -Sy archlinux-keyring --noconfirm
+
+

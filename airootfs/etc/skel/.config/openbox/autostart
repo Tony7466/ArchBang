@@ -19,7 +19,7 @@
 tint2 &
 feh --bg-scale ~/Backgrounds/winter.jpg
 conky &
-cbatticon &
+cbatticon -n &
 nm-applet &
 setxkbmap --layout "us" &
 lxsession &
